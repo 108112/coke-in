@@ -31,7 +31,7 @@ export default function Products() {
   };
 
   const togglePages = (page) => {
-    dispatch(setModalPages(page.name));
+    dispatch(setModalPages(page));
     dispatch(resetItems());
     dispatch(resetCurrentItem());
     dispatch(resetValues());
@@ -55,22 +55,22 @@ export default function Products() {
   //////handlers//////
   const handleOpenNews = (e) => {
     e.preventDefault();
-    togglePages(News);
+    togglePages("News");
   };
   const handleOpenReceipts = (e) => {
     e.preventDefault();
     handleDataFetch("products");
-    togglePages(Receipts);
+    togglePages("Receipts");
   };
   const handleOpenShipments = (e) => {
     e.preventDefault();
     handleDataFetch("items");
-    togglePages(Shipments);
+    togglePages("Shipments");
   };
   const handleOpenLists = (e) => {
     e.preventDefault();
     handleDataFetch("items");
-    togglePages(Lists);
+    togglePages("Lists");
   };
 
   return (
