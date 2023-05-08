@@ -4,9 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { visibleModal } from "../../features/modalSlice";
 import { closeSidebar } from "../../features/sidebarSlice";
 
-import Products from "../modals/products/Products";
-import Locations from "../modals/locations/Locations";
-
 import style from "./Sidebar.module.css";
 import { Container, Offcanvas } from "react-bootstrap";
 
@@ -17,17 +14,17 @@ export default function Sidebar() {
 
   const openModals = (component) => {
     dispatch(closeSidebar());
-    dispatch(visibleModal(component.name));
+    dispatch(visibleModal(component));
   };
 
   //////handlers//////
   const handleOpenProductsModal = (e) => {
     e.preventDefault();
-    openModals(Products);
+    openModals("Products");
   };
   const handleOpenLocationsModal = (e) => {
     e.preventDefault();
-    openModals(Locations);
+    openModals("Locations");
   };
   const handleCloseSidebar = () => {
     dispatch(closeSidebar());
