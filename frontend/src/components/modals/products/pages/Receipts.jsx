@@ -36,8 +36,12 @@ export default function Receipts() {
 
   //////Handlers//////
   const selectItem = async (id) => {
-    const response = await axios.get(`/products/${id}/select`);
-    dispatch(setCurrentItem(response.data));
+    try {
+      const response = await axios.get(`/products/${id}/select`);
+      dispatch(setCurrentItem(response.data));
+    } catch (err) {
+      console.log(err);
+    }
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;

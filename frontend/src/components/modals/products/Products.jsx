@@ -39,17 +39,12 @@ export default function Products() {
   };
 
   const handleDataFetch = async (page) => {
-    await axios
-      .get(`/${page}/all`)
-      .then(
-        (response) => {
-          dispatch(setItems(response.data));
-        },
-        [dispatch]
-      )
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      const response = await axios.get(`/${page}/all`);
+      dispatch(setItems(response.data));
+    } catch(err) {
+      console.log(err);
+    }
   };
 
   //////handlers//////
