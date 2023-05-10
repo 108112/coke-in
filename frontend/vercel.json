@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "src": "/api/.*",
+      "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      "dest": "https://cokein.herokuapp.com/api/:path*",
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,POST,PUT,PATCH,DELETE",
+        "Access-Control-Allow-Headers": "Content-Type"
+      }
+    }
+  ]
+}

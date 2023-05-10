@@ -12,7 +12,13 @@ mongoose
   .catch(() => console.log("disconnected MongoDB"));
 
 //////MIDDLE WARE//////
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: 'GET,POST,PUT,PATCH,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  credentials: true
+}));
 app.use(express.json());
 const productRouter = require("./routes/product");
 const itemRouter = require("./routes/item");
