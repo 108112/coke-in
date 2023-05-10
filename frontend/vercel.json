@@ -1,0 +1,8 @@
+{
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://cokein.herokuapp.com/api/$1"
+    }
+  ]
+}
