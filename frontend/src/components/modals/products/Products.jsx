@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setModalPages } from "../../../features/modalSlice";
+import { setModalPages, loading } from "../../../features/modalSlice";
 import { resetErrors, resetValues } from "../../../features/formSlice";
 
 import News from "./pages/News";
@@ -22,6 +22,7 @@ import { Col, Container, Row } from "react-bootstrap";
 export default function Products() {
   const dispatch = useDispatch();
   const page = useSelector((state) => state.modal.pages);
+  const isLoading = useSelector((state) => state.modal.isLoading);
 
   const pages = {
     News: <News />,
@@ -35,16 +36,18 @@ export default function Products() {
     dispatch(resetItems());
     dispatch(resetCurrentItem());
     dispatch(resetValues());
-    dispatch(resetErrors())
+    dispatch(resetErrors());
   };
 
   const handleDataFetch = async (page) => {
+    dispatch(loading());
     try {
       const response = await axios.get(`/api/${page}/all`);
       dispatch(setItems(response.data));
-    } catch(err) {
+    } catch (err) {
       console.log(err);
     }
+    dispatch(loading());
   };
 
   //////handlers//////
@@ -69,9 +72,9 @@ export default function Products() {
   };
 
   return (
-    <Container >
+    <Container>
       <Row className="h60vh">
-        <Col xs={3} className="d-flex flex-column">
+        <Col xs={3} className="d-flex flex-column" style={{pointerEvents: isLoading ? "none" : "auto"}}>
           <button className="menuItem" onClick={handleOpenNews}>
             新商品の登録
           </button>
@@ -86,7 +89,7 @@ export default function Products() {
           </button>
           <button className="menuItem">入出荷履歴</button>
         </Col>
-        <Col xs={9} >
+        <Col xs={9}>
           <div>{page && pages[page]}</div>
         </Col>
       </Row>

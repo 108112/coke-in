@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isVisible: false,
   component: null,
-  pages: null
+  pages: null,
+  isLoading: false,
 };
 
 export const modalSlice = createSlice({
@@ -23,9 +24,12 @@ export const modalSlice = createSlice({
     },
     resetModalPages: (state) => {
       state.pages = null;
+    },
+    loading: (state) => {
+      state.isLoading = !state.isLoading
     }
   },
 });
 
-export const { visibleModal, inVisibleModal, setModalPages, resetModalPages } = modalSlice.actions;
+export const { visibleModal, inVisibleModal, setModalPages, resetModalPages, loading } = modalSlice.actions;
 export default modalSlice.reducer;
