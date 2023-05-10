@@ -16,13 +16,9 @@ export default function News() {
   const values = useSelector((state) => state.form.values);
   const errors = useSelector((state) => state.form.errors);
   
-  let code;
-  code = values.map((value) => {value.code + value.exCode});
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     dispatch(setValues({ ...values, [name]: value }));
-    dispatch(setValues({...values, ["code"]: code}));
     setValidated(false);
   };
 
