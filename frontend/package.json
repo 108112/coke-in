@@ -41,5 +41,10 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://cokein.herokuapp.com/api"
+  "proxy": {
+    "/api/*": {
+      "target": "https://cokein.herokuapp.com",
+      "secure": false,
+      "changeOrigin": true
+    }
 }

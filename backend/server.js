@@ -10,6 +10,7 @@ mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("connect MongoDB"))
   .catch(() => console.log("disconnected MongoDB"));
+
 //////MIDDLE WARE//////
 app.use(cors());
 app.use(express.json());
@@ -17,5 +18,6 @@ const productRouter = require("./routes/product");
 const itemRouter = require("./routes/item");
 app.use("/api/products", productRouter);
 app.use("/api/items", itemRouter);
+
 //////Listen PORT//////
 app.listen(port, () => console.log(`CokeIN listening on port ${port}`));
