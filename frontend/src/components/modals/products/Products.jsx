@@ -17,7 +17,7 @@ import {
   resetItems,
   setItems,
 } from "../../../features/listSlice";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -74,7 +74,11 @@ export default function Products() {
   return (
     <Container>
       <Row className="h60vh">
-        <Col xs={3} className="d-flex flex-column" style={{pointerEvents: isLoading ? "none" : "auto"}}>
+        <Col
+          xs={3}
+          className="d-flex flex-column"
+          style={{ pointerEvents: isLoading ? "none" : "auto" }}
+        >
           <button className="menuItem" onClick={handleOpenNews}>
             新商品の登録
           </button>
@@ -90,7 +94,7 @@ export default function Products() {
           <button className="menuItem">入出荷履歴</button>
         </Col>
         <Col xs={9}>
-          <div>{page && pages[page]}</div>
+          <div>{isLoading ? <Spinner animation="border" size="sm" /> : page && pages[page]}</div>
         </Col>
       </Row>
     </Container>
