@@ -40,7 +40,7 @@ export default function Products() {
 
   const handleDataFetch = async (page) => {
     try {
-      const response = await axios.get(`/${page}/all`);
+      const response = await axios.get(`/api/${page}/all`);
       dispatch(setItems(response.data));
     } catch(err) {
       console.log(err);
