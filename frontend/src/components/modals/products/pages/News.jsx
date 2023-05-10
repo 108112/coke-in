@@ -29,7 +29,7 @@ export default function News() {
       e.stopPropagation();
     } else {
       try {
-        const response = await axios.post("/api/products/regist", values);
+        const response = await axios.post("/products/regist", values);
         console.log(response.data.message);
       } catch (err) {
         dispatch(setErrors(err.response.data.message));
