@@ -15,15 +15,9 @@ const ProductSchema = new mongoose.Schema({
   },
   code: {
     type: String,
-    minlength: 5,
-    maxlength: 5,
+    minlength: 9,
+    maxlength: 9,
     unique: true,
-    required: true,
-  },
-  exCode: {
-    type: String,
-    minlength: 4,
-    maxlength: 4,
     required: true,
   },
   maxLoad: {

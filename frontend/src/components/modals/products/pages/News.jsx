@@ -15,12 +15,17 @@ export default function News() {
   
   const values = useSelector((state) => state.form.values);
   const errors = useSelector((state) => state.form.errors);
+  
+  let code;
+  code = values.map((value) => {value.code + value.exCode});
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     dispatch(setValues({ ...values, [name]: value }));
+    dispatch(setValues({...values, ["code"]: code}));
     setValidated(false);
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,7 +66,7 @@ export default function News() {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group as={Col} md="4" controlId="exCode">
-          <Form.Label>JSコード</Form.Label>
+          <Form.Label>枝番</Form.Label>
           <Form.Control
             required
             type="text"
@@ -110,7 +115,7 @@ export default function News() {
             3文字または4文字で入力してください
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="3" controlId="maxLoad">
+        <Form.Group as={Col} md="4" controlId="maxLoad">
           <Form.Label>積載数</Form.Label>
           <Form.Control
             required
