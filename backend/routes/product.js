@@ -11,6 +11,7 @@ router.post("/regist", async (req, res) => {
       name: req.body.name,
       volume: req.body.volume,
       code: req.body.code,
+      exCode: req.body.exCode,
       maxLoad: req.body.maxLoad,
     }).save();
     return res

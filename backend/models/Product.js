@@ -20,6 +20,12 @@ const ProductSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
+  exCode: {
+    type: String,
+    minlength: 4,
+    maxlength: 4,
+    required: true,
+  },
   maxLoad: {
     type: String,
     minlength: 2,

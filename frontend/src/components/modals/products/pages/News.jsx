@@ -41,9 +41,9 @@ export default function News() {
   return (
     <Form noValidate validated={validated} onSubmit={handleSubmit}>
       <Row className="mb-2 text-center">
-        <h3>新商品の情報を入力</h3>
+        <h4>新商品の情報を入力</h4>
       </Row>
-      <Row className="mb-2 d-flex justify-content-end me-2">
+      <Row className="mb-2 d-flex justify-content-center">
         <Form.Group as={Col} md="4" controlId="code">
           <Form.Label>JSコード</Form.Label>
           <Form.Control
@@ -60,7 +60,25 @@ export default function News() {
             {errors || "5文字で入力してください"}
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="6" controlId="name">
+        <Form.Group as={Col} md="4" controlId="exCode">
+          <Form.Label>JSコード</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            name="exCode"
+            minLength={4}
+            maxLength={4}
+            placeholder="0000"
+            onChange={handleInputChange}
+            isInvalid={!!errors}
+          />
+          <Form.Control.Feedback type="invalid" id="exCode">
+            {errors || "4文字で入力してください"}
+          </Form.Control.Feedback>
+        </Form.Group>
+      </Row>
+      <Row className="mb-2 d-flex justify-content-center">
+      <Form.Group as={Col} md="8" controlId="name">
           <Form.Label>製品名</Form.Label>
           <Form.Control
             required
@@ -76,7 +94,7 @@ export default function News() {
           </Form.Control.Feedback>
         </Form.Group>
       </Row>
-      <Row className="mb-3 d-flex justify-content-end me-2">
+      <Row className="mb-3 d-flex justify-content-center">
         <Form.Group as={Col} md="4" controlId="volume">
           <Form.Label>容量</Form.Label>
           <Form.Control
