@@ -43,7 +43,7 @@ export default function Products() {
       const response = await axios.get(`/api/${page}/all`);
       dispatch(setItems(response.data));
     } catch(err) {
-      console.log(err.response.data.message);
+      console.log(err);
     }
   };
 
