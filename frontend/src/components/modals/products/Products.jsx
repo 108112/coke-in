@@ -94,7 +94,7 @@ export default function Products() {
           <button className="menuItem">入出荷履歴</button>
         </Col>
         <Col xs={9}>
-          <div>{isLoading ? <Spinner animation="border" size="sm" /> : page && pages[page]}</div>
+          <div className="d-flex flex-column justify-content-center align-items-center">{isLoading ? <Spinner animation="border" size="md"/> : page && pages[page]}</div>
         </Col>
       </Row>
     </Container>
