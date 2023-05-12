@@ -44,7 +44,7 @@ export default function News() {
       <Row className="mb-2">
         <Row className="d-flex justify-content-center mb-2">
           <Form.Group as={Col} md="5" controlId="code">
-            <Form.Label>JSコード</Form.Label>
+            <Form.Label>JS</Form.Label>
             <Form.Control
               required
               type="text"
