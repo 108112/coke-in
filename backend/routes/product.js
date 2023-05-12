@@ -5,8 +5,7 @@ router.post("/regist", async (req, res) => {
   try {
     const product = await Product.findOne({code: req.body.code, exCode: req.body.exCode});
     if(product) {
-      console.log(product)
-      return res.status(400).json({message: "すでに登録済みの製品です"});
+      return res.status(400).json({message: product});
     }
     const newProduct = await new Product({
       name: req.body.name,
