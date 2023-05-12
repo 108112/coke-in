@@ -33,9 +33,10 @@ export default function News() {
         alert(response.data.message);
       } catch (err) {
         dispatch(setErrors(err.response.data.message));
+        errors && alert(errors);
       }
     }
-    errors ? alert(errors) : setValidated(true);
+    setValidated(true);
   };
 
   return (
@@ -56,7 +57,7 @@ export default function News() {
               isInvalid={!!errors}
             />
             <Form.Control.Feedback type="invalid" id="code">
-              {errors || "5文字で入力してください"}
+              {"5文字で入力してください"}
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} md="3" controlId="exCode">
@@ -72,7 +73,7 @@ export default function News() {
               isInvalid={!!errors}
             />
             <Form.Control.Feedback type="invalid" id="exCode">
-              {errors || "4文字で入力してください"}
+              {"4文字で入力してください"}
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
