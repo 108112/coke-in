@@ -10,7 +10,8 @@ router.post("/regist", async (req, res) => {
     const newProduct = await new Product({
       name: req.body.name,
       volume: req.body.volume,
-      code: req.body.code + req.body.exCode,
+      code: req.body.code,
+      exCode: req.body.exCode,
       maxLoad: req.body.maxLoad,
     }).save();
     return res
