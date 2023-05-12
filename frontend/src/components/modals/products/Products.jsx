@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setModalPages, loading } from "../../../features/modalSlice";
 import { resetErrors, resetValues } from "../../../features/formSlice";
 
-import News from "./pages/News";
+import News from "./pages/News copy";
 import Receipts from "./pages/Receipts";
 import Shipments from "./pages/Shipments";
 import Lists from "./pages/Lists";
