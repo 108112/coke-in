@@ -33,7 +33,9 @@ export default function News() {
         alert(response.data.message);
       } catch (err) {
         dispatch(setErrors(err.response.data.message));
-        errors && alert(errors);
+        if(err.response.status === 400) {
+          alert(err.response.data.message);
+        }
       }
     }
     setValidated(true);
@@ -54,7 +56,6 @@ export default function News() {
               maxLength={5}
               placeholder="00000"
               onChange={handleInputChange}
-              isInvalid={!!errors}
             />
             <Form.Control.Feedback type="invalid" id="code">
               {"5文字で入力してください"}
@@ -70,7 +71,6 @@ export default function News() {
               maxLength={4}
               placeholder="0000"
               onChange={handleInputChange}
-              isInvalid={!!errors}
             />
             <Form.Control.Feedback type="invalid" id="exCode">
               {"4文字で入力してください"}
