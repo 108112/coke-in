@@ -31,7 +31,6 @@ export default function Modals() {
       centered
       show={modal}
       onHide={handleCloseModals}
-      style={{height: "100%"}}
     >
       <Modal.Header closeButton className="colaColor"></Modal.Header>
       <Modal.Body style={{height: "100%"}}>{component && components[component]}</Modal.Body>
