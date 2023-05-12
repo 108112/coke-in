@@ -3,15 +3,17 @@ const Product = require("../models/Product");
 
 router.post("/regist", async (req, res) => {
   try {
-    const product = await Product.findOne({code: req.body.code, exCode: req.body.exCode});
-    if(product) {
-      return res.status(400).json({message: product});
+    const product = await Product.findOne({});
+    if (product) {
+      return res.status(400).json({ message: "登録済みの製品です" });
     }
     const newProduct = await new Product({
+      code: {
+        js: req.body.js,
+        branch: req.body.branch,
+      },
       name: req.body.name,
       volume: req.body.volume,
-      code: req.body.code,
-      exCode: req.body.exCode,
       maxLoad: req.body.maxLoad,
     }).save();
     return res
@@ -25,8 +27,8 @@ router.post("/regist", async (req, res) => {
 router.get("/all", async (req, res) => {
   try {
     const products = await Product.find();
-    if(!products) {
-      return res.status(404).json({message: "製品が存在しません"});
+    if (!products) {
+      return res.status(404).json({ message: "製品が存在しません" });
     }
     return res.status(200).json(products);
   } catch (err) {
@@ -72,13 +74,15 @@ router.put("/:id/edit", async (req, res) => {
   }
 });
 
-router.get('/search', async (req, res) => {
+router.get("/search", async (req, res) => {
   try {
-    const product = await Product.find({name: {$regex: req.query.q, $options: "i"}});
+    const product = await Product.find({
+      name: { $regex: req.query.q, $options: "i" },
+    });
     return res.status(200).json(product);
-  } catch(err) {
+  } catch (err) {
     return res.status(500).json(err);
   }
-})
+});
 
 module.exports = router;
