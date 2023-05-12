@@ -34,7 +34,7 @@ export default function Modals() {
       style={{height: "100%"}}
     >
       <Modal.Header closeButton className="colaColor"></Modal.Header>
-      <Modal.Body>{component && components[component]}</Modal.Body>
+      <Modal.Body style={{height: "100%"}}>{component && components[component]}</Modal.Body>
     </Modal>
   );
 }
