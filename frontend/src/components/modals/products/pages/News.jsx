@@ -30,12 +30,12 @@ export default function News() {
     } else {
       try {
         const response = await axios.post("/api/products/regist", values);
-        console.log(response.data.message);
+        alert(response.data.message);
       } catch (err) {
         dispatch(setErrors(err.response.data.message));
       }
     }
-    setValidated(true);
+    errors ? alert(errors) : setValidated(true);
   };
 
   return (

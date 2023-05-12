@@ -3,7 +3,7 @@ const Product = require("../models/Product");
 
 router.post("/regist", async (req, res) => {
   try {
-    const product = await Product.findOne({code: req.body.code});
+    const product = await Product.findOne({code: req.body.code, exCode: req.body.exCode});
     if(product) {
       return res.status(400).json({message: "すでに登録済みの製品です"});
     }
