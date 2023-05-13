@@ -34,7 +34,7 @@ export default function Modals() {
       onHide={handleCloseModals}
     >
       <Modal.Header closeButton className="colaColor"></Modal.Header>
-      <Modal.Body as={Col} style={{ height: validate || xs ? "80vh" : "60vh" }}>
+      <Modal.Body as={Col} xs={12} style={{ height: validate || xs ? "80vh" : "60vh" }}>
         {component && components[component]}
       </Modal.Body>
     </Modal>
