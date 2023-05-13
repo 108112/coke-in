@@ -79,33 +79,35 @@ export default function Receipts() {
           </Row>
           <Row>
             <Col>
-              <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="col-2">JS</ListGroup.Item>
-                <ListGroup.Item className="col-3">
-                  {currentItem.code.JS}
-                </ListGroup.Item>
-              </ListGroup>
-              <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="col-2">枝番</ListGroup.Item>
-                <ListGroup.Item className="col-3">
-                  {currentItem.code.branch}
-                </ListGroup.Item>
-              </ListGroup>
+              <Row>
+                <ListGroup horizontal className="mb-2">
+                  <ListGroup.Item className="col-3">JS</ListGroup.Item>
+                  <ListGroup.Item className="col-3">
+                    {currentItem.code.JS}
+                  </ListGroup.Item>
+                </ListGroup>
+                <ListGroup horizontal className="mb-2">
+                  <ListGroup.Item className="col-3">枝番</ListGroup.Item>
+                  <ListGroup.Item className="col-3">
+                    {currentItem.code.branch}
+                  </ListGroup.Item>
+                </ListGroup>
+              </Row>
               <ListGroup horizontal className="mb-2">
                 <ListGroup.Item className="col-4">製品名</ListGroup.Item>
-                <ListGroup.Item className="col-7 text-truncate">
+                <ListGroup.Item className="col-8 text-truncate">
                   {currentItem.name}
                 </ListGroup.Item>
               </ListGroup>
               <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="col-3">容量</ListGroup.Item>
-                <ListGroup.Item className="col-4">
+                <ListGroup.Item className="col-4">容量</ListGroup.Item>
+                <ListGroup.Item className="col-3">
                   {currentItem.volume}ml
                 </ListGroup.Item>
               </ListGroup>
               <ListGroup horizontal>
-                <ListGroup.Item className="px-2 col-3">積載数</ListGroup.Item>
-                <ListGroup.Item className="col-4">
+                <ListGroup.Item className="px-2 col-4">積載数</ListGroup.Item>
+                <ListGroup.Item className="col-3">
                   {currentItem.maxLoad} cs
                 </ListGroup.Item>
               </ListGroup>
