@@ -80,36 +80,34 @@ export default function Receipts() {
           <Row>
             <Col xs={7}>
               <Row>
-                <ListGroup horizontal className="mb-2 col-6">
-                  <ListGroup.Item className="col-5">JS</ListGroup.Item>
+                <ListGroup horizontal className="mb-2">
+                  <ListGroup.Item>JS</ListGroup.Item>
                   <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
                 </ListGroup>
-                <ListGroup horizontal className="mb-2 col-6">
+                <ListGroup horizontal className="mb-2">
                   <ListGroup.Item>枝番</ListGroup.Item>
                   <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
                 </ListGroup>
-              </Row>
-              <Row>
                 <ListGroup horizontal className="mb-2">
-                  <ListGroup.Item className="col-4">製品名</ListGroup.Item>
-                  <ListGroup.Item className="col-8">
+                  <ListGroup.Item>製品名</ListGroup.Item>
+                  <ListGroup.Item>
                     {currentItem.name}
                   </ListGroup.Item>
                 </ListGroup>
               </Row>
               <Row>
-                <ListGroup horizontal className="mb-2 col-6">
+                <ListGroup horizontal className="mb-2">
                   <ListGroup.Item>容量</ListGroup.Item>
                   <ListGroup.Item>{currentItem.volume}ml</ListGroup.Item>
                 </ListGroup>
-                <ListGroup horizontal className="mb-2 col-6">
+                <ListGroup horizontal className="mb-2">
                   <ListGroup.Item>積載数</ListGroup.Item>
                   <ListGroup.Item>{currentItem.maxLoad} cs</ListGroup.Item>
                 </ListGroup>
               </Row>
             </Col>
             <Col xs={5}>
-              <FormGroup className="mb-2 col-4" controlId="quantity">
+              <FormGroup className="mb-2" controlId="quantity">
                 <Form.Label>数量</Form.Label>
                 <Form.Control
                   type="text"
@@ -123,7 +121,7 @@ export default function Receipts() {
                   数量を入力してください
                 </Form.Control.Feedback>
               </FormGroup>
-              <FormGroup className="mb-2 col-8" controlId="bestBefore">
+              <FormGroup className="mb-2" controlId="bestBefore">
                 <Form.Label>賞味期限</Form.Label>
                 <Form.Control
                   type="date"
