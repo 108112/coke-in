@@ -91,8 +91,8 @@ export default function Receipts() {
               </Row>
               <Row>
                 <ListGroup horizontal className="mb-2">
-                  <ListGroup.Item className="col-3">製品名</ListGroup.Item>
-                  <ListGroup.Item className="col-9">
+                  <ListGroup.Item className="col-4">製品名</ListGroup.Item>
+                  <ListGroup.Item className="col-8">
                     {currentItem.name}
                   </ListGroup.Item>
                 </ListGroup>
