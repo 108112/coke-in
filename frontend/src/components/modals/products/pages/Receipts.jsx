@@ -29,11 +29,10 @@ import {
 export default function Receipts() {
   const dispatch = useDispatch();
 
-  const [validated, setValidated] = useState(false);
-
   const items = useSelector((state) => state.list.items);
   const currentItem = useSelector((state) => state.list.currentItem);
   const values = useSelector((state) => state.form.values);
+  const validate = useSelector((state) => state.form.validate);
 
   //////Handlers//////
   const selectItem = async (id) => {
@@ -74,7 +73,7 @@ export default function Receipts() {
   return (
     <div>
       {currentItem ? (
-        <Form noValidate validated={validated} onSubmit={handleSubmit}>
+        <Form noValidate validated={validate} onSubmit={handleSubmit}>
           <h3 className="fw-bold text-center mb-3">製品を入庫する</h3>
           <Row>
             <Col xs={12} md={7}>
