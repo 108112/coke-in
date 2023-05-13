@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setErrors, setValues } from "../../../../features/formSlice";
+import { setErrors, setValues, setValidate } from "../../../../features/formSlice";
 
 import { Col, Row, Form, Button } from "react-bootstrap";
 
@@ -10,15 +10,14 @@ import "../Products.css";
 
 export default function News() {
   const dispatch = useDispatch();
-
-  const [validated, setValidated] = useState(false);
-
+  
   const values = useSelector((state) => state.form.values);
+  const validate = useSelector((state) => state.form.validate);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     dispatch(setValues({ ...values, [name]: value }));
-    setValidated(false);
+    dispatch(setValidate(false));
   };
 
   const handleSubmit = async (e) => {
@@ -37,11 +36,11 @@ export default function News() {
         dispatch(setErrors(err.message));
       }
     }
-    setValidated(true);
+    dispatch(setValidate(true));
   };
 
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
+    <Form noValidate validated={validate} onSubmit={handleSubmit}>
       <h4 className="text-center">新商品の情報を入力</h4>
       <Row className="mb-2">
         <Row className="d-flex justify-content-center mb-2">

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setModalPages, loading } from "../../../features/modalSlice";
-import { resetErrors, resetValues } from "../../../features/formSlice";
+import { resetErrors, resetValues, setValidate } from "../../../features/formSlice";
 
 import News from "./pages/News";
 import Receipts from "./pages/Receipts";
@@ -39,6 +39,7 @@ export default function Products() {
     dispatch(resetCurrentItem());
     dispatch(resetValues());
     dispatch(resetErrors());
+    dispatch(setValidate(false))
   };
 
   const handleDataFetch = async (page) => {

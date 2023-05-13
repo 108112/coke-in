@@ -10,6 +10,7 @@ import {
   resetValues,
   setErrors,
   setValues,
+  setValidate
 } from "../../../../features/formSlice";
 
 import Search from "../../../search/Search";
@@ -67,7 +68,7 @@ export default function Receipts() {
         dispatch(setErrors(err.response.data.message));
       }
     }
-    setValidated(true);
+    dispatch(setValidate(true));
   };
 
   return (
