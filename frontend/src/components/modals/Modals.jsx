@@ -6,7 +6,7 @@ import { inVisibleModal, resetModalPages } from "../../features/modalSlice";
 import Products from "./products/Products";
 import Locations from "./locations/Locations";
 import { resetCurrentItem } from "../../features/listSlice";
-import { Modal } from "react-bootstrap";
+import { Col, Modal } from "react-bootstrap";
 
 export default function Modals() {
   const dispatch = useDispatch();
