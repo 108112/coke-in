@@ -79,13 +79,13 @@ export default function Receipts() {
           <Row>
             <Col xs={12} md={7}>
               <Row xs={12}>
-                <Col xs={12}>
+                <Col xs={12} md={6}>
                   <ListGroup horizontal className="mb-3">
                     <ListGroup.Item>JS</ListGroup.Item>
                     <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
                   </ListGroup>
                 </Col>
-                <Col xs={12}>
+                <Col xs={12} md={6}>
                   <ListGroup horizontal className="mb-3">
                     <ListGroup.Item>枝番</ListGroup.Item>
                     <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
