@@ -152,20 +152,20 @@ export default function Receipts() {
           <Table striped bordered hover className="table-sticky table-fixed">
             <thead>
               <tr>
-                <th className="col-2">JS</th>
-                <th className="col-1">枝番</th>
-                <th className="col-6">商品名</th>
-                <th className="col-2">内容量</th>
+                <th>JS</th>
+                <th>枝番</th>
+                <th>商品名</th>
+                <th>内容量</th>
               </tr>
             </thead>
             <tbody>
               {items.map((item) => {
                 return (
                   <tr key={item._id} onClick={() => selectItem(item._id)}>
-                    <td className="col-2">{item.code.JS}</td>
-                    <td className="col-1">{item.code.branch}</td>
-                    <td className="col-6">{item.name}</td>
-                    <td className="col-2">{item.volume}ml</td>
+                    <td>{item.code.JS}</td>
+                    <td>{item.code.branch}</td>
+                    <td>{item.name}</td>
+                    <td>{item.volume}ml</td>
                   </tr>
                 );
               })}
