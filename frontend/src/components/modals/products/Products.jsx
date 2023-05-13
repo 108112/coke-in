@@ -3,7 +3,11 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setModalPages, loading } from "../../../features/modalSlice";
-import { resetErrors, resetValues, setValidate } from "../../../features/formSlice";
+import {
+  resetErrors,
+  resetValues,
+  setValidate,
+} from "../../../features/formSlice";
 
 import News from "./pages/News";
 import Receipts from "./pages/Receipts";
@@ -18,6 +22,8 @@ import {
   resetItems,
   setItems,
 } from "../../../features/listSlice";
+
+import { FaPlus, FaArrowDown, FaWarehouse, FaTruck, FaListAlt } from "react-icons/fa";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 export default function Products() {
@@ -39,7 +45,7 @@ export default function Products() {
     dispatch(resetCurrentItem());
     dispatch(resetValues());
     dispatch(resetErrors());
-    dispatch(setValidate(false))
+    dispatch(setValidate(false));
   };
 
   const handleDataFetch = async (page) => {
@@ -88,20 +94,25 @@ export default function Products() {
           className="d-flex flex-column"
           style={{ pointerEvents: isLoading ? "none" : "auto" }}
         >
-          <button className="menuItem" onClick={handleOpenNews}>
-            新商品の登録
+          <button className="menuItem">
+            <FaPlus className="d-block d-sm-none" />
+            <span className="d-none d-sm-block">新商品の登録</span>
           </button>
-          <button className="menuItem" onClick={handleOpenReceipts}>
-            入庫する
+          <button className="menuItem">
+            <FaArrowDown className="d-block d-sm-none" />
+            <span className="d-none d-sm-block">入庫する</span>
           </button>
-          <button className="menuItem" onClick={handleOpenStorings}>
-            格納する
+          <button className="menuItem">
+            <FaWarehouse className="d-block d-sm-none" />
+            <span className="d-none d-sm-block">格納する</span>
           </button>
-          <button className="menuItem" onClick={handleOpenShipments}>
-            出庫する
+          <button className="menuItem">
+            <FaTruck className="d-block d-sm-none" />
+            <span className="d-none d-sm-block">出庫する</span>
           </button>
-          <button className="menuItem" onClick={handleOpenLists}>
-            製品一覧
+          <button className="menuItem">
+            <FaListAlt className="d-block d-sm-none" />
+            <span className="d-none d-sm-block">製品一覧</span>
           </button>
           <button className="menuItem">入出荷履歴</button>
         </Col>
