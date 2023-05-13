@@ -83,7 +83,8 @@ export default function Products() {
     <Container>
       <Row className="h60vh">
         <Col
-          xs={3}
+          sm={2}
+          md={3}
           className="d-flex flex-column"
           style={{ pointerEvents: isLoading ? "none" : "auto" }}
         >
@@ -104,7 +105,7 @@ export default function Products() {
           </button>
           <button className="menuItem">入出荷履歴</button>
         </Col>
-        <Col xs={9}>
+        <Col sm={10} md={9}>
           <div>
             {isLoading ? (
               <Spinner animation="border" size="md" />
