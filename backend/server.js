@@ -25,14 +25,4 @@ const itemRouter = require("./routes/item");
 app.use("/api/products", productRouter);
 app.use("/api/items", itemRouter);
 
-//////TEST//////
-app.get('/', (req, res) => {
-  res.send('hello server');
-})
-
-//////Listen PORT//////
-<<<<<<< HEAD
 app.listen(port, () => console.log(`CokeIN listening on port ${port}`));
-=======
-app.listen(port, () => console.log(`CokeIN listening on port ${port}`));
->>>>>>> 13148fc (update)
