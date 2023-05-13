@@ -78,10 +78,10 @@ export default function Receipts() {
             <h3 className="fw-bold">製品を入庫する</h3>
           </Row>
           <Row>
-            <Col xs={7}>
+            <Col xs={12} md={7}>
               <Row>
                 <ListGroup horizontal className="mb-2 col-6">
-                  <ListGroup.Item xs={0}>JS</ListGroup.Item>
+                  <ListGroup.Item>JS</ListGroup.Item>
                   <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
                 </ListGroup>
                 <ListGroup horizontal className="mb-2 col-6">
@@ -108,7 +108,7 @@ export default function Receipts() {
                 </ListGroup>
               </Row>
             </Col>
-            <Col xs={5}>
+            <Col xs={12} md={5}>
               <FormGroup className="mb-2" controlId="quantity">
                 <Form.Label>数量</Form.Label>
                 <Form.Control
