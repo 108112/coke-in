@@ -22,8 +22,6 @@ import {
   resetItems,
   setItems,
 } from "../../../features/listSlice";
-
-import { FaPlus, FaArrowDown, FaWarehouse, FaTruck, FaListAlt } from "react-icons/fa";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 export default function Products() {
@@ -94,23 +92,23 @@ export default function Products() {
           className="d-flex flex-column"
           style={{ pointerEvents: isLoading ? "none" : "auto" }}
         >
-          <button className="menuItem">
+          <button className="menuItem" onClick={handleOpenNews}>
             <FaPlus className="d-block d-sm-none" />
             <span className="d-none d-sm-block">新商品の登録</span>
           </button>
-          <button className="menuItem">
+          <button className="menuItem" onClick={handleOpenReceipts}>
             <FaArrowDown className="d-block d-sm-none" />
             <span className="d-none d-sm-block">入庫する</span>
           </button>
-          <button className="menuItem">
+          <button className="menuItem" onClick={handleOpenStorings}>
             <FaWarehouse className="d-block d-sm-none" />
             <span className="d-none d-sm-block">格納する</span>
           </button>
-          <button className="menuItem">
+          <button className="menuItem" onClick={handleOpenShipments}>
             <FaTruck className="d-block d-sm-none" />
             <span className="d-none d-sm-block">出庫する</span>
           </button>
-          <button className="menuItem">
+          <button className="menuItem" onClick={handleOpenLists}>
             <FaListAlt className="d-block d-sm-none" />
             <span className="d-none d-sm-block">製品一覧</span>
           </button>
