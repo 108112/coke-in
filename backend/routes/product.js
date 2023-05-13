@@ -9,7 +9,7 @@ router.post("/regist", async (req, res) => {
     }
     const newProduct = await new Product({
       code: {
-        js: req.body.js,
+        JS: req.body.JS,
         branch: req.body.branch,
       },
       name: req.body.name,
