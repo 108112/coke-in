@@ -79,18 +79,20 @@ export default function Receipts() {
           </Row>
           <Row className="mb-4">
             <Col>
-              <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="col-3">JS</ListGroup.Item>
-                <ListGroup.Item className="col-4">
-                  {currentItem.code.JS}
-                </ListGroup.Item>
-              </ListGroup>
-              <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="col-3">枝番</ListGroup.Item>
-                <ListGroup.Item className="col-4">
-                  {currentItem.code.branch}
-                </ListGroup.Item>
-              </ListGroup>
+              <Row>
+                <ListGroup horizontal className="mb-2">
+                  <ListGroup.Item className="col-2">JS</ListGroup.Item>
+                  <ListGroup.Item className="col-3">
+                    {currentItem.code.JS}
+                  </ListGroup.Item>
+                </ListGroup>
+                <ListGroup horizontal className="mb-2">
+                  <ListGroup.Item className="col-2">枝番</ListGroup.Item>
+                  <ListGroup.Item className="col-3">
+                    {currentItem.code.branch}
+                  </ListGroup.Item>
+                </ListGroup>
+              </Row>
               <ListGroup horizontal className="mb-2">
                 <ListGroup.Item className="col-4">製品名</ListGroup.Item>
                 <ListGroup.Item className="col-7 text-truncate">
@@ -110,6 +112,8 @@ export default function Receipts() {
                 </ListGroup.Item>
               </ListGroup>
             </Col>
+          </Row>
+          <Row>
             <FormGroup as={Col} className="mb-2 col-4" controlId="quantity">
               <Form.Label>数量</Form.Label>
               <Form.Control
