@@ -22,6 +22,8 @@ import {
   resetItems,
   setItems,
 } from "../../../features/listSlice";
+
+import { FiLogIn, FiLogOut, FiDownload, FiList } from "react-icons/fi";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 export default function Products() {
@@ -97,19 +99,19 @@ export default function Products() {
             <span className="d-none d-sm-block">新商品の登録</span>
           </button>
           <button className="menuItem" onClick={handleOpenReceipts}>
-            <FaArrowDown className="d-block d-sm-none" />
+            <FiLogIn className="d-block d-sm-none" />
             <span className="d-none d-sm-block">入庫する</span>
           </button>
           <button className="menuItem" onClick={handleOpenStorings}>
-            <FaWarehouse className="d-block d-sm-none" />
+            <FiDownload className="d-block d-sm-none" />
             <span className="d-none d-sm-block">格納する</span>
           </button>
           <button className="menuItem" onClick={handleOpenShipments}>
-            <FaTruck className="d-block d-sm-none" />
+            <FiLogOut className="d-block d-sm-none" />
             <span className="d-none d-sm-block">出庫する</span>
           </button>
           <button className="menuItem" onClick={handleOpenLists}>
-            <FaListAlt className="d-block d-sm-none" />
+            <FiList className="d-block d-sm-none" />
             <span className="d-none d-sm-block">製品一覧</span>
           </button>
           <button className="menuItem">入出荷履歴</button>
