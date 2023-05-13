@@ -46,7 +46,7 @@ export default function Receipts() {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     dispatch(setValues({ ...values, [name]: value }));
-    setValidated(false);
+    dispatch(setValidate(false));
   };
 
   const handleSubmit = async (e) => {
