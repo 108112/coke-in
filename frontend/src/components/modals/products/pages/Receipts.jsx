@@ -79,18 +79,14 @@ export default function Receipts() {
           <Row>
             <Col xs={12} md={7}>
               <Row xs={12}>
-                <Col xs={6}>
-                  <ListGroup horizontal className="mb-3">
-                    <ListGroup.Item>JS</ListGroup.Item>
-                    <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
-                  </ListGroup>
-                </Col>
-                <Col xs={6}>
-                  <ListGroup horizontal className="mb-3">
-                    <ListGroup.Item>枝番</ListGroup.Item>
-                    <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
-                  </ListGroup>
-                </Col>
+                <ListGroup as={Col} horizontal className="mb-3">
+                  <ListGroup.Item>JS</ListGroup.Item>
+                  <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
+                </ListGroup>
+                <ListGroup as={Col} horizontal className="mb-3">
+                  <ListGroup.Item>枝番</ListGroup.Item>
+                  <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
+                </ListGroup>
               </Row>
               <Row xs={12}>
                 <ListGroup horizontal className="mb-3">
@@ -143,11 +139,11 @@ export default function Receipts() {
               </FormGroup>
             </Col>
           </Row>
-          <div className="justify-content-center">
+          <Row className="justify-content-center">
             <Button type="submit" style={{ width: "40%" }} variant="danger">
               送信
             </Button>
-          </div>
+          </Row>
         </Form>
       ) : (
         <Col>
