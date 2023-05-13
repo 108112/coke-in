@@ -23,7 +23,7 @@ import {
   setItems,
 } from "../../../features/listSlice";
 
-import { FiLogIn, FiLogOut, FiDownload, FiList } from "react-icons/fi";
+import { FiPlus, FiLogIn, FiLogOut, FiDownload, FiList } from "react-icons/fi";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 export default function Products() {
@@ -95,7 +95,7 @@ export default function Products() {
           style={{ pointerEvents: isLoading ? "none" : "auto" }}
         >
           <button className="menuItem" onClick={handleOpenNews}>
-            <FaPlus className="d-block d-sm-none" />
+            <FiPlus className="d-block d-sm-none" />
             <span className="d-none d-sm-block">新商品の登録</span>
           </button>
           <button className="menuItem" onClick={handleOpenReceipts}>
