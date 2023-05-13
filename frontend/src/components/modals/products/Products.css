@@ -27,7 +27,7 @@ td {
 }
 .table-sticky {
   display: block;
-  width: 60vw;
+  width: 100vw;
   overflow-y: scroll;
   height: calc(100vh / 2.75);
 }
