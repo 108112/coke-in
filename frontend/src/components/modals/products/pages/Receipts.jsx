@@ -80,25 +80,31 @@ export default function Receipts() {
           <Row>
             <Col xs={6}>
               <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="px-2">JSコード</ListGroup.Item>
+                <ListGroup.Item className="px-2 col-4">JSコード</ListGroup.Item>
                 <ListGroup.Item className="col-4">
-                  {currentItem.code}
+                  {currentItem.code.js}
                 </ListGroup.Item>
               </ListGroup>
               <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="px-2">製品名</ListGroup.Item>
+                <ListGroup.Item className="px-2 col-4">枝番</ListGroup.Item>
+                <ListGroup.Item className="col-4">
+                  {currentItem.code.branch}
+                </ListGroup.Item>
+              </ListGroup>
+              <ListGroup horizontal className="mb-2">
+                <ListGroup.Item className="px-2 col-4">製品名</ListGroup.Item>
                 <ListGroup.Item className="col-7 text-truncate">
                   {currentItem.name}
                 </ListGroup.Item>
               </ListGroup>
               <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="px-2">容量</ListGroup.Item>
+                <ListGroup.Item className="px-2 col-4">容量</ListGroup.Item>
                 <ListGroup.Item className="col-4">
                   {currentItem.volume}ml
                 </ListGroup.Item>
               </ListGroup>
               <ListGroup horizontal>
-                <ListGroup.Item className="px-2">積載数</ListGroup.Item>
+                <ListGroup.Item className="px-2 col-4">積載数</ListGroup.Item>
                 <ListGroup.Item className="col-4">
                   {currentItem.maxLoad} cs
                 </ListGroup.Item>
@@ -138,20 +144,6 @@ export default function Receipts() {
                   日付を入力してください
                 </Form.Control.Feedback>
               </FormGroup>
-              <FormGroup as={Col} className="mb-3" controlId="formGridQty">
-                <Form.Label>ロケーション</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="location"
-                  onChange={handleInputChange}
-                  maxLength={5}
-                  required
-                  placeholder="1A-01"
-                />
-                <Form.Control.Feedback type="invalid">
-                  ロケーションを入力してください
-                </Form.Control.Feedback>
-              </FormGroup>
             </Col>
           </Row>
           <Row className="justify-content-sm-center">
@@ -175,7 +167,7 @@ export default function Receipts() {
               {items.map((item) => {
                 return (
                   <tr key={item._id} onClick={() => selectItem(item._id)}>
-                    <td className="col-2">{item.code}</td>
+                    <td className="col-2">{item.code.js}</td>
                     <td className="col-6">{item.name}</td>
                     <td className="col-2">{item.volume}ml</td>
                   </tr>
