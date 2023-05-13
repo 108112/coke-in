@@ -81,7 +81,7 @@ export default function Receipts() {
             <Col xs={7}>
               <Row>
                 <ListGroup horizontal className="mb-2 col-6">
-                  <ListGroup.Item className="col-3">JS</ListGroup.Item>
+                  <ListGroup.Item className="col-4">JS</ListGroup.Item>
                   <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
                 </ListGroup>
                 <ListGroup horizontal className="mb-2 col-6">
