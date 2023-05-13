@@ -14,7 +14,6 @@ export default function News() {
   const [validated, setValidated] = useState(false);
 
   const values = useSelector((state) => state.form.values);
-  const errors = useSelector((state) => state.form.errors);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,13 +28,13 @@ export default function News() {
       e.stopPropagation();
     } else {
       try {
-        const response = await axios.post("/api/products/regist", values);
+        const response = await axios.post("/products/regist", values);
         alert(response.data.message);
       } catch (err) {
-        dispatch(setErrors(err.response.data.message));
-        if(err.response.status === 400) {
+        if (err.response.status === 400) {
           alert(err.response.data.message);
         }
+        dispatch(setErrors(err.message));
       }
     }
     setValidated(true);
@@ -46,18 +45,18 @@ export default function News() {
       <h4 className="text-center">新商品の情報を入力</h4>
       <Row className="mb-2">
         <Row className="d-flex justify-content-center mb-2">
-          <Form.Group as={Col} md="5" controlId="js">
+          <Form.Group as={Col} md="5" controlId="code">
             <Form.Label>JS</Form.Label>
             <Form.Control
               required
               type="text"
-              name="js"
+              name="code"
               minLength={5}
               maxLength={5}
               placeholder="00000"
               onChange={handleInputChange}
             />
-            <Form.Control.Feedback type="invalid" id="js">
+            <Form.Control.Feedback type="invalid" id="code">
               {"5文字で入力してください"}
             </Form.Control.Feedback>
           </Form.Group>
