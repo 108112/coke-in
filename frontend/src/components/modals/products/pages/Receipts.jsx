@@ -82,7 +82,13 @@ export default function Receipts() {
               <ListGroup horizontal className="mb-2">
                 <ListGroup.Item className="col-4">JS</ListGroup.Item>
                 <ListGroup.Item className="col-4">
-                  {currentItem.code}
+                  {currentItem.code.JS}
+                </ListGroup.Item>
+              </ListGroup>
+              <ListGroup horizontal className="mb-2">
+                <ListGroup.Item className="col-4">枝番</ListGroup.Item>
+                <ListGroup.Item className="col-4">
+                  {currentItem.code.branch}
                 </ListGroup.Item>
               </ListGroup>
               <ListGroup horizontal className="mb-2">
