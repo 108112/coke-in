@@ -78,41 +78,39 @@ export default function Receipts() {
             <h3 className="fw-bold">製品を入庫する</h3>
           </Row>
           <Row>
-            <Col>
+            <Col xs={8}>
               <Row>
                 <ListGroup horizontal className="mb-2 col-6">
                   <ListGroup.Item>JS</ListGroup.Item>
-                  <ListGroup.Item>
-                    {currentItem.code.JS}
-                  </ListGroup.Item>
+                  <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
                 </ListGroup>
                 <ListGroup horizontal className="mb-2 col-6">
                   <ListGroup.Item>枝番</ListGroup.Item>
-                  <ListGroup.Item>
-                    {currentItem.code.branch}
-                  </ListGroup.Item>
+                  <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
                 </ListGroup>
               </Row>
               <ListGroup horizontal className="mb-2">
                 <ListGroup.Item className="col-4">製品名</ListGroup.Item>
-                <ListGroup.Item className="col-8 text-truncate">
+                <ListGroup.Item className="text-truncate">
                   {currentItem.name}
                 </ListGroup.Item>
               </ListGroup>
-              <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="col-4">容量</ListGroup.Item>
-                <ListGroup.Item className="col-3">
-                  {currentItem.volume}ml
-                </ListGroup.Item>
-              </ListGroup>
-              <ListGroup horizontal>
-                <ListGroup.Item className="px-2 col-4">積載数</ListGroup.Item>
-                <ListGroup.Item className="col-3">
-                  {currentItem.maxLoad} cs
-                </ListGroup.Item>
-              </ListGroup>
+              <Row>
+                <ListGroup horizontal className="mb-2">
+                  <ListGroup.Item>容量</ListGroup.Item>
+                  <ListGroup.Item>
+                    {currentItem.volume}ml
+                  </ListGroup.Item>
+                </ListGroup>
+                <ListGroup horizontal>
+                  <ListGroup.Item>積載数</ListGroup.Item>
+                  <ListGroup.Item>
+                    {currentItem.maxLoad} cs
+                  </ListGroup.Item>
+                </ListGroup>
+              </Row>
             </Col>
-            <Col>
+            <Col xs={4}>
               <FormGroup className="mb-2 col-4" controlId="quantity">
                 <Form.Label>数量</Form.Label>
                 <Form.Control
