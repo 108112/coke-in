@@ -87,7 +87,7 @@ export default function Products() {
 
   return (
     <Container>
-      <Row className="h60vh">
+      <Row>
         <Col
           xs={2}
           md={3}

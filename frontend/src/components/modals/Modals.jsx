@@ -12,6 +12,7 @@ export default function Modals() {
   const dispatch = useDispatch();
   const component = useSelector((state) => state.modal.component);
   const modal = useSelector((state) => state.modal.isVisible);
+  const validate = useSelector((state) => state.form.validate);
 
   const components = {
     Products: <Products />,
@@ -33,7 +34,7 @@ export default function Modals() {
       onHide={handleCloseModals}
     >
       <Modal.Header closeButton className="colaColor"></Modal.Header>
-      <Modal.Body style={{height: "100%"}}>{component && components[component]}</Modal.Body>
+      <Modal.Body style={{height: validate ? "80vh" : "60vh"}}>{component && components[component]}</Modal.Body>
     </Modal>
   );
 }
