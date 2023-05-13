@@ -10,7 +10,7 @@ import {
   resetValues,
   setErrors,
   setValues,
-  setValidate
+  setValidate,
 } from "../../../../features/formSlice";
 
 import Search from "../../../search/Search";
@@ -75,9 +75,7 @@ export default function Receipts() {
     <div>
       {currentItem ? (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row className="text-center mb-4">
-            <h3 className="fw-bold">製品を入庫する</h3>
-          </Row>
+          <h3 className="fw-bold text-center mb-3">製品を入庫する</h3>
           <Row>
             <Col xs={12} md={7}>
               <Row>
