@@ -158,7 +158,8 @@ export default function Receipts() {
           <Table striped bordered hover className="table-sticky table-fixed">
             <thead>
               <tr>
-                <th className="col-2">JSコード</th>
+                <th className="col-2">JS</th>
+                <th className="col-2">枝番</th>
                 <th className="col-6">商品名</th>
                 <th className="col-2">内容量</th>
               </tr>
