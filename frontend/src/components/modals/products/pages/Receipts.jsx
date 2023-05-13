@@ -74,31 +74,25 @@ export default function Receipts() {
     <div>
       {currentItem ? (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row className="text-center mb-2">
+          <Row className="text-center mb-4">
             <h3 className="fw-bold">製品を入庫する</h3>
           </Row>
-          <Row>
+          <Row className="mb-4">
             <Col xs={6}>
               <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="px-2 col-4">JSコード</ListGroup.Item>
+                <ListGroup.Item className="col-4">JS</ListGroup.Item>
                 <ListGroup.Item className="col-4">
-                  {currentItem.code.js}
+                  {currentItem.code.JS}
                 </ListGroup.Item>
               </ListGroup>
               <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="px-2 col-4">枝番</ListGroup.Item>
-                <ListGroup.Item className="col-4">
-                  {currentItem.code.branch}
-                </ListGroup.Item>
-              </ListGroup>
-              <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="px-2 col-4">製品名</ListGroup.Item>
+                <ListGroup.Item className="col-4">製品名</ListGroup.Item>
                 <ListGroup.Item className="col-7 text-truncate">
                   {currentItem.name}
                 </ListGroup.Item>
               </ListGroup>
               <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="px-2 col-4">容量</ListGroup.Item>
+                <ListGroup.Item className="col-4">容量</ListGroup.Item>
                 <ListGroup.Item className="col-4">
                   {currentItem.volume}ml
                 </ListGroup.Item>
@@ -146,7 +140,7 @@ export default function Receipts() {
               </FormGroup>
             </Col>
           </Row>
-          <Row className="justify-content-sm-center">
+          <Row className="justify-content-center">
             <Button type="submit" style={{ width: "40%" }} variant="danger">
               送信
             </Button>
@@ -158,8 +152,8 @@ export default function Receipts() {
           <Table striped bordered hover className="table-sticky table-fixed">
             <thead>
               <tr>
-                <th className="col-2">JS</th>
-                <th className="col-2">枝番</th>
+                <th className="col-2">JSコード</th>
+                <th className="col-1">枝番</th>
                 <th className="col-6">商品名</th>
                 <th className="col-2">内容量</th>
               </tr>
@@ -169,7 +163,7 @@ export default function Receipts() {
                 return (
                   <tr key={item._id} onClick={() => selectItem(item._id)}>
                     <td className="col-2">{item.code.JS}</td>
-                    <td className="col-6">{item.code.branch}</td>
+                    <td className="col-1">{item.code.branch}</td>
                     <td className="col-6">{item.name}</td>
                     <td className="col-2">{item.volume}ml</td>
                   </tr>
