@@ -79,18 +79,14 @@ export default function Receipts() {
           <Row>
             <Col xs={12} md={7}>
               <Row>
-                <Col>
-                  <ListGroup horizontal className="mb-3">
-                    <ListGroup.Item>JS</ListGroup.Item>
-                    <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
-                  </ListGroup>
-                </Col>
-                <Col>
-                  <ListGroup horizontal className="mb-3">
-                    <ListGroup.Item>枝番</ListGroup.Item>
-                    <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
-                  </ListGroup>
-                </Col>
+                <ListGroup as={Col} horizontal className="mb-3">
+                  <ListGroup.Item>JS</ListGroup.Item>
+                  <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
+                </ListGroup>
+                <ListGroup as={Col} horizontal className="mb-3">
+                  <ListGroup.Item>枝番</ListGroup.Item>
+                  <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
+                </ListGroup>
               </Row>
               <ListGroup horizontal className="mb-3">
                 <ListGroup.Item>製品名</ListGroup.Item>
