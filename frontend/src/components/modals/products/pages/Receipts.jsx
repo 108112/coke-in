@@ -78,14 +78,16 @@ export default function Receipts() {
           <h3 className="fw-bold text-center mb-3">製品を入庫する</h3>
           <Row>
             <Col xs={12} md={7}>
-              <ListGroup horizontal className="mb-3">
-                <ListGroup.Item>JS</ListGroup.Item>
-                <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
-              </ListGroup>
-              <ListGroup horizontal className="mb-3">
-                <ListGroup.Item>枝番</ListGroup.Item>
-                <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
-              </ListGroup>
+              <Row md={12}>
+                <ListGroup horizontal className="mb-3">
+                  <ListGroup.Item>JS</ListGroup.Item>
+                  <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
+                </ListGroup>
+                <ListGroup horizontal className="mb-3">
+                  <ListGroup.Item>枝番</ListGroup.Item>
+                  <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
+                </ListGroup>
+              </Row>
               <ListGroup horizontal className="mb-3">
                 <ListGroup.Item>製品名</ListGroup.Item>
                 <ListGroup.Item>{currentItem.name}</ListGroup.Item>
