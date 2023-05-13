@@ -49,7 +49,7 @@ export default function News() {
             <Form.Control
               required
               type="text"
-              name="JS"
+              name="code"
               minLength={5}
               maxLength={5}
               placeholder="00000"
