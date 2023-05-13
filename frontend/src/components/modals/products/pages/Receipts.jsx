@@ -78,7 +78,7 @@ export default function Receipts() {
             <h3 className="fw-bold">製品を入庫する</h3>
           </Row>
           <Row>
-            <Col xs={8}>
+            <Col xs={7}>
               <Row>
                 <ListGroup horizontal className="mb-2 col-6">
                   <ListGroup.Item>JS</ListGroup.Item>
@@ -89,28 +89,26 @@ export default function Receipts() {
                   <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
                 </ListGroup>
               </Row>
-              <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="col-3">製品名</ListGroup.Item>
-                <ListGroup.Item className="col-9">
-                  {currentItem.name}
-                </ListGroup.Item>
-              </ListGroup>
               <Row>
-                <ListGroup horizontal className="mb-2 col-6">
-                  <ListGroup.Item>容量</ListGroup.Item>
-                  <ListGroup.Item>
-                    {currentItem.volume}ml
-                  </ListGroup.Item>
-                </ListGroup>
-                <ListGroup horizontal className="mb-2 col-6">
-                  <ListGroup.Item>積載数</ListGroup.Item>
-                  <ListGroup.Item>
-                    {currentItem.maxLoad} cs
+                <ListGroup horizontal className="mb-2">
+                  <ListGroup.Item className="col-3">製品名</ListGroup.Item>
+                  <ListGroup.Item className="col-9">
+                    {currentItem.name}
                   </ListGroup.Item>
                 </ListGroup>
               </Row>
+              <Row>
+                <ListGroup horizontal className="mb-2 col-6">
+                  <ListGroup.Item>容量</ListGroup.Item>
+                  <ListGroup.Item>{currentItem.volume}ml</ListGroup.Item>
+                </ListGroup>
+                <ListGroup horizontal className="mb-2 col-6">
+                  <ListGroup.Item>積載数</ListGroup.Item>
+                  <ListGroup.Item>{currentItem.maxLoad} cs</ListGroup.Item>
+                </ListGroup>
+              </Row>
             </Col>
-            <Col xs={4}>
+            <Col xs={5}>
               <FormGroup className="mb-2 col-4" controlId="quantity">
                 <Form.Label>数量</Form.Label>
                 <Form.Control
