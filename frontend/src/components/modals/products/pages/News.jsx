@@ -44,18 +44,18 @@ export default function News() {
       <h4 className="text-center">新商品の情報を入力</h4>
       <Row className="mb-2">
         <Row className="d-flex justify-content-center mb-2">
-          <Form.Group as={Col} md="5" controlId="code">
+          <Form.Group as={Col} md="5" controlId="JS">
             <Form.Label>JS</Form.Label>
             <Form.Control
               required
               type="text"
-              name="code"
+              name="JS"
               minLength={5}
               maxLength={5}
               placeholder="00000"
               onChange={handleInputChange}
             />
-            <Form.Control.Feedback type="invalid" id="code">
+            <Form.Control.Feedback type="invalid" id="JS">
               {"5文字で入力してください"}
             </Form.Control.Feedback>
           </Form.Group>
