@@ -80,13 +80,13 @@ export default function Receipts() {
           <Row>
             <Col>
               <Row>
-                <ListGroup horizontal className="mb-2">
+                <ListGroup horizontal className="mb-2 col-6">
                   <ListGroup.Item className="col-3">JS</ListGroup.Item>
                   <ListGroup.Item className="col-3">
                     {currentItem.code.JS}
                   </ListGroup.Item>
                 </ListGroup>
-                <ListGroup horizontal className="mb-2">
+                <ListGroup horizontal className="mb-2 col-6">
                   <ListGroup.Item className="col-3">枝番</ListGroup.Item>
                   <ListGroup.Item className="col-3">
                     {currentItem.code.branch}
