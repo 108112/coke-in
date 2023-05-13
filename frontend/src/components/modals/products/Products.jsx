@@ -7,6 +7,7 @@ import { resetErrors, resetValues } from "../../../features/formSlice";
 
 import News from "./pages/News";
 import Receipts from "./pages/Receipts";
+import Storings from "./pages/Storings";
 import Shipments from "./pages/Shipments";
 import Lists from "./pages/Lists";
 
@@ -27,6 +28,7 @@ export default function Products() {
   const pages = {
     News: <News />,
     Receipts: <Receipts />,
+    Storings: <Storings />,
     Shipments: <Shipments />,
     Lists: <Lists />,
   };
