@@ -76,69 +76,59 @@ export default function Receipts() {
       {currentItem ? (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <h3 className="fw-bold text-center mb-3">製品を入庫する</h3>
-          <Row>
-            <Col xs={12} md={7}>
-              <Row>
-                <ListGroup horizontal className="mb-2">
-                  <ListGroup.Item>JS</ListGroup.Item>
-                  <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
-                </ListGroup>
-                <ListGroup horizontal className="mb-2">
-                  <ListGroup.Item>枝番</ListGroup.Item>
-                  <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
-                </ListGroup>
-              </Row>
-              <Row>
-                <ListGroup horizontal className="mb-2">
-                  <ListGroup.Item>製品名</ListGroup.Item>
-                  <ListGroup.Item>{currentItem.name}</ListGroup.Item>
-                </ListGroup>
-              </Row>
-              <Row>
-                <ListGroup horizontal className="mb-2">
-                  <ListGroup.Item>容量</ListGroup.Item>
-                  <ListGroup.Item>{currentItem.volume}ml</ListGroup.Item>
-                </ListGroup>
-              </Row>
-              <Row>
-                <ListGroup horizontal className="mb-2">
-                  <ListGroup.Item>積載数</ListGroup.Item>
-                  <ListGroup.Item>{currentItem.maxLoad} cs</ListGroup.Item>
-                </ListGroup>
-              </Row>
-            </Col>
-            <Col xs={12} md={5}>
-              <FormGroup className="mb-2" controlId="quantity">
-                <Form.Label>数量</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="quantity"
-                  onChange={handleInputChange}
-                  required
-                  maxLength={2}
-                  placeholder="00"
-                />
-                <Form.Control.Feedback type="invalid">
-                  数量を入力してください
-                </Form.Control.Feedback>
-              </FormGroup>
-              <FormGroup className="mb-2" controlId="bestBefore">
-                <Form.Label>賞味期限</Form.Label>
-                <Form.Control
-                  type="date"
-                  name="bestBefore"
-                  min={"1900-01-01"}
-                  max={"2099-12-31"}
-                  onChange={handleInputChange}
-                  required
-                  placeholder="1900/01/01"
-                />
-                <Form.Control.Feedback type="invalid">
-                  日付を入力してください
-                </Form.Control.Feedback>
-              </FormGroup>
-            </Col>
-          </Row>
+          <Col xs={12} md={7}>
+            <ListGroup horizontal className="mb-3">
+              <ListGroup.Item>JS</ListGroup.Item>
+              <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
+            </ListGroup>
+            <ListGroup horizontal className="mb-3">
+              <ListGroup.Item>枝番</ListGroup.Item>
+              <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
+            </ListGroup>
+            <ListGroup horizontal className="mb-3">
+              <ListGroup.Item>製品名</ListGroup.Item>
+              <ListGroup.Item>{currentItem.name}</ListGroup.Item>
+            </ListGroup>
+            <ListGroup horizontal className="mb-3">
+              <ListGroup.Item>容量</ListGroup.Item>
+              <ListGroup.Item>{currentItem.volume}ml</ListGroup.Item>
+            </ListGroup>
+            <ListGroup horizontal className="mb-3">
+              <ListGroup.Item>積載数</ListGroup.Item>
+              <ListGroup.Item>{currentItem.maxLoad} cs</ListGroup.Item>
+            </ListGroup>
+          </Col>
+          <Col xs={12} md={5}>
+            <FormGroup className="mb-2" controlId="quantity">
+              <Form.Label>数量</Form.Label>
+              <Form.Control
+                type="text"
+                name="quantity"
+                onChange={handleInputChange}
+                required
+                maxLength={2}
+                placeholder="00"
+              />
+              <Form.Control.Feedback type="invalid">
+                数量を入力してください
+              </Form.Control.Feedback>
+            </FormGroup>
+            <FormGroup className="mb-2" controlId="bestBefore">
+              <Form.Label>賞味期限</Form.Label>
+              <Form.Control
+                type="date"
+                name="bestBefore"
+                min={"1900-01-01"}
+                max={"2099-12-31"}
+                onChange={handleInputChange}
+                required
+                placeholder="1900/01/01"
+              />
+              <Form.Control.Feedback type="invalid">
+                日付を入力してください
+              </Form.Control.Feedback>
+            </FormGroup>
+          </Col>
           <Row className="justify-content-center">
             <Button type="submit" style={{ width: "40%" }} variant="danger">
               送信
