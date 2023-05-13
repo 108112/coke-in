@@ -91,19 +91,19 @@ export default function Receipts() {
               </Row>
               <Row>
                 <ListGroup horizontal className="mb-2">
-                  <ListGroup.Item>製品名</ListGroup.Item>
-                  <ListGroup.Item>{currentItem.name}</ListGroup.Item>
+                  <ListGroup.Item className="col-4">製品名</ListGroup.Item>
+                  <ListGroup.Item className="col-8">{currentItem.name}</ListGroup.Item>
                 </ListGroup>
               </Row>
               <Row>
                 <ListGroup horizontal className="mb-2">
-                  <ListGroup.Item>容量</ListGroup.Item>
+                  <ListGroup.Item className="col-4">容量</ListGroup.Item>
                   <ListGroup.Item>{currentItem.volume}ml</ListGroup.Item>
                 </ListGroup>
               </Row>
               <Row>
                 <ListGroup horizontal className="mb-2">
-                  <ListGroup.Item>積載数</ListGroup.Item>
+                  <ListGroup.Item className="col-4">積載数</ListGroup.Item>
                   <ListGroup.Item>{currentItem.maxLoad} cs</ListGroup.Item>
                 </ListGroup>
               </Row>
