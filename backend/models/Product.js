@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema({
   code: {
-    js: {
+    JS: {
       type: String,
       maxlength: 5,
       minlength: 5,
