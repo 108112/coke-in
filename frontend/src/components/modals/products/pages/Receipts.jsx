@@ -110,7 +110,7 @@ export default function Receipts() {
                 </ListGroup.Item>
               </ListGroup>
             </Col>
-            <Col className="text-right">
+            <Col className="pull-right">
               <FormGroup as={Col} className="mb-2 col-4" controlId="formGridQty">
                 <Form.Label>数量</Form.Label>
                 <Form.Control
