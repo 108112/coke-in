@@ -91,14 +91,12 @@ export default function Receipts() {
                   {currentItem.code.branch}
                 </ListGroup.Item>
               </ListGroup>
-            </Col>
-            <ListGroup horizontal className="mb-2">
-              <ListGroup.Item className="col-4">製品名</ListGroup.Item>
-              <ListGroup.Item className="col-7 text-truncate">
-                {currentItem.name}
-              </ListGroup.Item>
-            </ListGroup>
-            <Col>
+              <ListGroup horizontal className="mb-2">
+                <ListGroup.Item className="col-4">製品名</ListGroup.Item>
+                <ListGroup.Item className="col-7 text-truncate">
+                  {currentItem.name}
+                </ListGroup.Item>
+              </ListGroup>
               <ListGroup horizontal className="mb-2">
                 <ListGroup.Item className="col-3">容量</ListGroup.Item>
                 <ListGroup.Item className="col-4">
