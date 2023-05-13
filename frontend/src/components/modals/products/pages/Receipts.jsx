@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -145,7 +145,7 @@ export default function Receipts() {
           </Row>
         </Form>
       ) : (
-        <Col>
+        <Container fluid>
           <Search />
           <Table striped bordered hover className="table-sticky table-fixed">
             <thead>
@@ -169,7 +169,7 @@ export default function Receipts() {
               })}
             </tbody>
           </Table>
-        </Col>
+        </Container>
       )}
     </div>
   );
