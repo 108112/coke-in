@@ -79,17 +79,14 @@ export default function Receipts() {
           </Row>
           <Row>
             <Col xs={7}>
-              <Row>
-                <ListGroup horizontal className="mb-2 col-6">
+                <ListGroup as={Row} horizontal className="mb-2 col-6">
                   <ListGroup.Item>JS</ListGroup.Item>
                   <ListGroup.Item>{currentItem.code.JS}</ListGroup.Item>
                 </ListGroup>
-                <ListGroup horizontal className="mb-2 col-6">
+                <ListGroup as={Row} horizontal className="mb-2 col-6">
                   <ListGroup.Item>枝番</ListGroup.Item>
                   <ListGroup.Item>{currentItem.code.branch}</ListGroup.Item>
                 </ListGroup>
-              </Row>
-              <Col>
                 <ListGroup horizontal className="mb-2">
                   <ListGroup.Item>製品名</ListGroup.Item>
                   <ListGroup.Item>{currentItem.name}</ListGroup.Item>
@@ -102,7 +99,6 @@ export default function Receipts() {
                   <ListGroup.Item>積載数</ListGroup.Item>
                   <ListGroup.Item>{currentItem.maxLoad} cs</ListGroup.Item>
                 </ListGroup>
-              </Col>
             </Col>
             <Col xs={5}>
               <FormGroup className="mb-2" controlId="quantity">
