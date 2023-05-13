@@ -60,6 +60,11 @@ export default function Products() {
     handleDataFetch("products");
     togglePages("Receipts");
   };
+  const handleOpenStorings = (e) => {
+    e.preventDefault();
+    // handleDataFetch("items");
+    togglePages("Storings");
+  };
   const handleOpenShipments = (e) => {
     e.preventDefault();
     handleDataFetch("items");
@@ -84,6 +89,9 @@ export default function Products() {
           </button>
           <button className="menuItem" onClick={handleOpenReceipts}>
             入庫する
+          </button>
+          <button className="menuItem" onClick={handleOpenStorings}>
+            格納する
           </button>
           <button className="menuItem" onClick={handleOpenShipments}>
             出庫する
