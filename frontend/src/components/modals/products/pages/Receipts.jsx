@@ -147,7 +147,7 @@ export default function Receipts() {
           </Row>
         </Form>
       ) : (
-        <Container>
+        <Col>
           <Search />
           <Table striped bordered hover className="table-sticky table-fixed">
             <thead>
@@ -171,7 +171,7 @@ export default function Receipts() {
               })}
             </tbody>
           </Table>
-        </Container>
+        </Col>
       )}
     </div>
   );
