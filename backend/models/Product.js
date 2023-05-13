@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema({
+<<<<<<< HEAD
+=======
   code: {
     js: {
       type: String,
@@ -15,6 +17,7 @@ const ProductSchema = new mongoose.Schema({
       required: true
     }
   },
+>>>>>>> 13148fc (update)
   name: {
     type: String,
     minlength: 4,
@@ -27,6 +30,16 @@ const ProductSchema = new mongoose.Schema({
     maxlength: 4,
     required: true,
   },
+<<<<<<< HEAD
+  code: {
+    type: String,
+    minlength: 5,
+    maxlength: 5,
+    unique: true,
+    required: true,
+  },
+=======
+>>>>>>> 13148fc (update)
   maxLoad: {
     type: String,
     minlength: 2,
