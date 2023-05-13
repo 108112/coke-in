@@ -3,13 +3,15 @@ const Product = require("../models/Product");
 
 router.post("/regist", async (req, res) => {
   try {
-    const product = await Product.findOne({});
+    const product = await Product.findOne({
+      code: { JS: req.body.code, branch: req.body.branch },
+    });
     if (product) {
-      return res.status(400).json({ message: "登録済みの製品です" });
+      return res.status(400).json({ message: "すでに存在しています" });
     }
     const newProduct = await new Product({
       code: {
-        JS: req.body.JS,
+        JS: req.body.code,
         branch: req.body.branch,
       },
       name: req.body.name,
