@@ -111,7 +111,7 @@ export default function Receipts() {
               </ListGroup>
             </Col>
             <Col>
-              <FormGroup as={Col} className="mb-2" controlId="formGridQty">
+              <FormGroup as={Col} className="mb-2 col-4" controlId="formGridQty">
                 <Form.Label>数量</Form.Label>
                 <Form.Control
                   type="text"
@@ -127,7 +127,7 @@ export default function Receipts() {
               </FormGroup>
               <FormGroup
                 as={Col}
-                className="mb-2"
+                className="mb-2 col-4"
                 controlId="formGridBestBefore"
               >
                 <Form.Label>賞味期限</Form.Label>
