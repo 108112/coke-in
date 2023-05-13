@@ -1,12 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { isMobile } from "react-device-detect";
 
 import { inVisibleModal, resetModalPages } from "../../features/modalSlice";
+import { resetCurrentItem } from "../../features/listSlice";
 
 import Products from "./products/Products";
 import Locations from "./locations/Locations";
-import { resetCurrentItem } from "../../features/listSlice";
-import { Col, Modal } from "react-bootstrap";
+
+import { Modal } from "react-bootstrap";
 
 export default function Modals() {
   const dispatch = useDispatch();
@@ -34,7 +36,7 @@ export default function Modals() {
       onHide={handleCloseModals}
     >
       <Modal.Header closeButton className="colaColor"></Modal.Header>
-      <Modal.Body as={Col} xs={12} style={{ height: validate || xs ? "80vh" : "60vh" }}>
+      <Modal.Body style={{ height: validate || isMobile ? "80vh" : "60vh" }}>
         {component && components[component]}
       </Modal.Body>
     </Modal>
