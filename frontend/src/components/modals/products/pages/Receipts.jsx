@@ -57,7 +57,7 @@ export default function Receipts() {
     } else {
       try {
         const response = await axios.post(
-          `/items/${currentItem._id}/receipt`,
+          `/api/items/${currentItem._id}/receipt`,
           values
         );
         alert(response.data.message);
