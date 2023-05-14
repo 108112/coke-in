@@ -2,28 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  setCurrentItem,
-  resetCurrentItem,
-} from "../../../../features/listSlice";
+import { resetCurrentItem } from "../../../../features/listSlice";
 import {
   resetValues,
   setErrors,
   setValues,
 } from "../../../../features/formSlice";
 
-import Search from "../../../search/Search";
-
-import {
-  Button,
-  Col,
-  Container,
-  Form,
-  FormGroup,
-  ListGroup,
-  Row,
-  Table,
-} from "react-bootstrap";
+import { Button, Col, Form, FormGroup, ListGroup, Row } from "react-bootstrap";
 import Lists from "./Lists";
 
 export default function Shipments() {
@@ -31,15 +17,10 @@ export default function Shipments() {
 
   const [validated, setValidated] = useState(false);
 
-  const items = useSelector((state) => state.list.items);
   const currentItem = useSelector((state) => state.list.currentItem);
   const values = useSelector((state) => state.form.values);
 
   //////Handlers//////
-  const selectItem = async (id) => {
-    const response = await axios.get(`/items/${id}/select`);
-    dispatch(setCurrentItem(response.data));
-  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

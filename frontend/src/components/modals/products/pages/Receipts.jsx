@@ -2,7 +2,10 @@ import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { resetCurrentItem } from "../../../../features/listSlice";
+import {
+  setCurrentItem,
+  resetCurrentItem,
+} from "../../../../features/listSlice";
 import {
   resetValues,
   setErrors,
@@ -32,6 +35,14 @@ export default function Receipts() {
   const validate = useSelector((state) => state.form.validate);
 
   //////Handlers//////
+  const selectItem = async (id) => {
+    try {
+      const response = await axios.get(`/api/products/${id}/select`);
+      dispatch(setCurrentItem(response.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     dispatch(setValues({ ...values, [name]: value }));

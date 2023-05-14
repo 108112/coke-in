@@ -1,22 +1,26 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Search from "../../../search/Search";
 import { Container, Table } from "react-bootstrap";
 
 import { setCurrentItem } from "../../../../features/listSlice";
+import axios from "axios";
 
-const selectItem = async (id) => {
-  try {
-    const response = await axios.get(`/api/products/${id}/select`);
-    dispatch(setCurrentItem(response.data));
-  } catch (err) {
-    console.log(err);
-  }
-};
 
 export default function Lists() {
+  const dispatch = useDispatch();
+  
   const items = useSelector((state) => state.list.items);
   const pages = useSelector((state) => state.modals.pages);
+  
+  const selectItem = async (id) => {
+    try {
+      const response = await axios.get(`/items/${id}/select`);
+      dispatch(setCurrentItem(response.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Container fluid>
