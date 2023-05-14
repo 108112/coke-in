@@ -17,17 +17,12 @@
   outline: none;
 }
 
-.h60vh {
-  height: 60vh;
-}
-
 td {
   vertical-align: middle;
   cursor: pointer;
 }
 .table-sticky {
   display: block;
-  width: 100vw;
   overflow-y: scroll;
   height: calc(100vh / 2.75);
 }
