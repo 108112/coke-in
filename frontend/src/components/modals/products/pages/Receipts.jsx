@@ -147,7 +147,7 @@ export default function Receipts() {
       ) : (
         <Container fluid>
           <Search />
-          <Table striped bordered hover className="table-sticky table-fixed">
+          <Table striped bordered hover className="table-sticky">
             <thead>
               <tr>
                 <th>JS</th>

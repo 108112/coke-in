@@ -24,7 +24,7 @@ export default function Lists() {
           <tbody>
             {items.map((item) => {
               return (
-                <tr key={item._id}>
+                <tr key={item._id} className="">
                   <td>{item.product.code}</td>
                   <td>{item.product.name}</td>
                   <td>{item.product.volume}ml</td>

@@ -79,7 +79,13 @@ export default function Shipments() {
               <ListGroup horizontal className="mb-2">
                 <ListGroup.Item className="px-2">JSコード</ListGroup.Item>
                 <ListGroup.Item className="col-4">
-                  {currentItem.product.code}
+                  {currentItem.product.code.JS}
+                </ListGroup.Item>
+              </ListGroup>
+              <ListGroup horizontal className="mb-2">
+                <ListGroup.Item className="px-2">枝番</ListGroup.Item>
+                <ListGroup.Item className="col-4">
+                  {currentItem.product.code.branch}
                 </ListGroup.Item>
               </ListGroup>
               <ListGroup horizontal className="mb-2">
