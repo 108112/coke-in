@@ -9,9 +9,9 @@ import axios from "axios";
 
 export default function Lists() {
   const dispatch = useDispatch();
-  
+
   const items = useSelector((state) => state.list.items);
-  const pages = useSelector((state) => state.modals.pages);
+  const pages = useSelector((state) => state.modal.pages);
   
   const selectItem = async (id) => {
     try {
