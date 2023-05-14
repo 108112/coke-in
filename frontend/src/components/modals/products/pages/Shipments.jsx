@@ -152,24 +152,26 @@ export default function Shipments() {
           <Table striped bordered hover className="table-sticky table-fixed">
             <thead>
               <tr>
-                <th className="col-2">JSコード</th>
-                <th className="">商品名</th>
-                <th className="col-2">内容量</th>
-                <th className="col-2">賞味期限</th>
-                <th className="col-2">ロケ</th>
-                <th className="col-1">PL</th>
+                <th>JSコード</th>
+                <th>枝番</th>
+                <th>商品名</th>
+                <th>内容量</th>
+                <th>賞味期限</th>
+                <th>ロケ</th>
+                <th>PL</th>
               </tr>
             </thead>
             <tbody>
               {items.map((item) => {
                 return (
                   <tr key={item._id} onClick={() => selectItem(item._id)}>
-                    <td className="col-2">{item.product.code}</td>
+                    <td>{item.product.code.JS}</td>
+                    <td>{item.product.code.branch}</td>
                     <td className="">{item.product.name}</td>
-                    <td className="col-2">{item.product.volume}ml</td>
-                    <td className="col-2">{item.bestBefore}</td>
-                    <td className="col-2">{item.location}</td>
-                    <td className="col-1">{item.quantity}</td>
+                    <td>{item.product.volume}ml</td>
+                    <td>{item.bestBefore}</td>
+                    <td>{item.location}</td>
+                    <td>{item.quantity}</td>
                   </tr>
                 );
               })}
