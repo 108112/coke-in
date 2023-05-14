@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Search from "../../../search/Search";
-import { Col, Container, Table } from "react-bootstrap";
+import { Col, Table } from "react-bootstrap";
 
 
 export default function Lists() {
@@ -14,6 +14,7 @@ export default function Lists() {
           <thead>
             <tr>
               <th>JSコード</th>
+              <th>枝番</th>
               <th>商品名</th>
               <th>内容量</th>
               <th>賞味期限</th>
@@ -25,7 +26,8 @@ export default function Lists() {
             {items.map((item) => {
               return (
                 <tr key={item._id} className="">
-                  <td>{item.product.code}</td>
+                  <td>{item.product.code.JS}</td>
+                  <td>{item.product.code.branch}</td>
                   <td>{item.product.name}</td>
                   <td>{item.product.volume}ml</td>
                   <td>{item.bestBefore}</td>
