@@ -3,9 +3,20 @@ import { useSelector } from "react-redux";
 import Search from "../../../search/Search";
 import { Container, Table } from "react-bootstrap";
 
+import { setCurrentItem } from "../../../../features/listSlice";
+
+const selectItem = async (id) => {
+  try {
+    const response = await axios.get(`/api/products/${id}/select`);
+    dispatch(setCurrentItem(response.data));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export default function Lists() {
   const items = useSelector((state) => state.list.items);
-  const pages = useSelector((state) => state.modals.pages)
+  const pages = useSelector((state) => state.modals.pages);
 
   return (
     <Container fluid>
@@ -25,7 +36,10 @@ export default function Lists() {
         <tbody>
           {items.map((item) => {
             return (
-              <tr key={item._id} onClick={pages !== "Lists" && selectItem(item._id)}>
+              <tr
+                key={item._id}
+                onClick={pages !== "Lists" && selectItem(item._id)}
+              >
                 <td>{item.product.code.JS}</td>
                 <td>{item.product.code.branch}</td>
                 <td>{item.product.name}</td>
