@@ -24,6 +24,7 @@ import {
   Row,
   Table,
 } from "react-bootstrap";
+import Lists from "./Lists";
 
 export default function Shipments() {
   const dispatch = useDispatch();
@@ -147,37 +148,7 @@ export default function Shipments() {
           </Row>
         </Form>
       ) : (
-        <Container>
-          <Search />
-          <Table striped bordered hover className="table-sticky table-fixed">
-            <thead>
-              <tr>
-                <th>JSコード</th>
-                <th>枝番</th>
-                <th>商品名</th>
-                <th>内容量</th>
-                <th>賞味期限</th>
-                <th>ロケ</th>
-                <th>PL</th>
-              </tr>
-            </thead>
-            <tbody>
-              {items.map((item) => {
-                return (
-                  <tr key={item._id} onClick={() => selectItem(item._id)}>
-                    <td>{item.product.code.JS}</td>
-                    <td>{item.product.code.branch}</td>
-                    <td className="">{item.product.name}</td>
-                    <td>{item.product.volume}ml</td>
-                    <td>{item.bestBefore}</td>
-                    <td>{item.location}</td>
-                    <td>{item.quantity}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </Table>
-        </Container>
+        <Lists />
       )}
     </div>
   );
