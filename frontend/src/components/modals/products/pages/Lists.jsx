@@ -42,7 +42,7 @@ export default function Lists() {
             return (
               <tr
                 key={item._id}
-                onClick={pages !== "Lists" && selectItem(item._id)}
+                onClick={ () => pages !== "Lists" && selectItem(item._id)}
               >
                 <td>{item.product.code.JS}</td>
                 <td>{item.product.code.branch}</td>
