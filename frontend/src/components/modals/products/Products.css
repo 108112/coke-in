@@ -17,12 +17,13 @@
   outline: none;
 }
 
-tr {
+th {
   width: 100%;
 }
 td {
   vertical-align: middle;
   cursor: pointer;
+  width: 100%;
 }
 .table-sticky {
   display: block;
