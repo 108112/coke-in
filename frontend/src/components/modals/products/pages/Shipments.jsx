@@ -57,7 +57,7 @@ export default function Shipments() {
             <h3 className="fw-bold">製品を出庫する</h3>
           </Row>
           <Row>
-            <Col xs={6}>
+            <Col xs={12} md={6}>
               <ListGroup horizontal className="mb-2">
                 <ListGroup.Item className="px-2">JSコード</ListGroup.Item>
                 <ListGroup.Item className="col-4">
@@ -89,13 +89,7 @@ export default function Shipments() {
                 </ListGroup.Item>
               </ListGroup>
             </Col>
-            <Col>
-              <ListGroup horizontal className="mb-2">
-                <ListGroup.Item className="px-2">ロケーション</ListGroup.Item>
-                <ListGroup.Item className="col-4">
-                  {currentItem.location}
-                </ListGroup.Item>
-              </ListGroup>
+            <Col xs={12} md={6}>
               <ListGroup horizontal className="mb-2">
                 <ListGroup.Item className="px-2">賞味期限</ListGroup.Item>
                 <ListGroup.Item className="col-6">
