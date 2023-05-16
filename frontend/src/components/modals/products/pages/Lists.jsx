@@ -31,7 +31,6 @@ export default function Lists() {
             <th>枝番</th>
             <th>内容量</th>
             <th>賞味期限</th>
-            <th>ロケ</th>
             <th>PL</th>
           </tr>
         </thead>
