@@ -17,6 +17,9 @@
   outline: none;
 }
 
+tr {
+  width: 100%;
+}
 td {
   vertical-align: middle;
   cursor: pointer;
