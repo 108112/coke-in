@@ -15,7 +15,7 @@ export default function Lists() {
   
   const selectItem = async (id) => {
     try {
-      const response = await axios.get(`/items/${id}/select`);
+      const response = await axios.get(`/api/items/${id}/select`);
       dispatch(setCurrentItem(response.data));
     } catch (err) {
       console.log(err);
