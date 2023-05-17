@@ -160,8 +160,8 @@ export default function Receipts() {
               {items.map((item) => {
                 return (
                   <tr key={item._id} onClick={() => selectItem(item._id)}>
-                    <td>{item.code.JS}</td>
-                    <td>{item.code.branch}</td>
+                    <td className="col-1">{item.code.JS}</td>
+                    <td className="col-1">{item.code.branch}</td>
                     <td>{item.name}</td>
                     <td>{item.volume}ml</td>
                   </tr>

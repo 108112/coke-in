@@ -44,7 +44,7 @@ export default function Lists() {
                 <td className="col-1">{item.product.code.JS}</td>
                 <td className="col-1">{item.product.code.branch}</td>
                 <td>{item.product.volume}ml</td>
-                <td>{item.bestBefore}</td>
+                <td className="col-4">{item.bestBefore}</td>
                 <td className="col-2">{item.quantity}</td>
               </tr>
             );
