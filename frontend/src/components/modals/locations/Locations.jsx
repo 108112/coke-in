@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import News from "./pages/News";
 import { setModalPages } from "../../../features/modalSlice";
 
-import { Col, Container, Row } from "react-bootstrap";
-import { FiDownload, FiLogIn, FiLogOut, FiPlus } from "react-icons/fi";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { FiDownload, FiList, FiLogIn, FiLogOut, FiPlus } from "react-icons/fi";
 
 export default function Locations() {
   const dispatch = useDispatch();
