@@ -37,11 +37,11 @@ export default function Locations() {
         >
           <button className="menuItem" onClick={handleOpenNews}>
             <FiPlus className="d-block d-sm-none" />
-            <span className="d-none d-sm-block">新商品の登録</span>
+            <span className="d-none d-sm-block">新規登録</span>
           </button>
           <button className="menuItem">
             <FiLogIn className="d-block d-sm-none" />
-            <span className="d-none d-sm-block">入庫する</span>
+            <span className="d-none d-sm-block">番号を登録</span>
           </button>
           <button className="menuItem">
             <FiDownload className="d-block d-sm-none" />

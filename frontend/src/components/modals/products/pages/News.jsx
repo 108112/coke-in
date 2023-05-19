@@ -48,7 +48,7 @@ export default function News() {
             <Form.Label>JS</Form.Label>
             <Form.Control
               required
-              type="text"
+              type="number"
               name="code"
               minLength={5}
               maxLength={5}
@@ -56,14 +56,14 @@ export default function News() {
               onChange={handleInputChange}
             />
             <Form.Control.Feedback type="invalid" id="JS">
-              {"5文字で入力してください"}
+              5文字のJSコードを入力してください
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} md="3" controlId="branch">
             <Form.Label>枝番</Form.Label>
             <Form.Control
               required
-              type="text"
+              type="number"
               name="branch"
               minLength={4}
               maxLength={4}
@@ -71,7 +71,7 @@ export default function News() {
               onChange={handleInputChange}
             />
             <Form.Control.Feedback type="invalid" id="branch">
-              {"4文字で入力してください"}
+              4文字の枝番を入力してください
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
@@ -97,7 +97,7 @@ export default function News() {
             <Form.Label>容量</Form.Label>
             <Form.Control
               required
-              type="text"
+              type="number"
               name="volume"
               minLength={3}
               maxLength={4}
@@ -105,14 +105,14 @@ export default function News() {
               onChange={handleInputChange}
             />
             <Form.Control.Feedback type="invalid">
-              3文字または4文字で入力してください
+              3~4文字の数字を入力してください
             </Form.Control.Feedback>
           </Form.Group>
           <Form.Group as={Col} md="4" controlId="maxLoad">
             <Form.Label>積載数</Form.Label>
             <Form.Control
               required
-              type="text"
+              type="number"
               name="maxLoad"
               minLength={2}
               maxLength={3}
@@ -120,7 +120,7 @@ export default function News() {
               onChange={handleInputChange}
             />
             <Form.Control.Feedback type="invalid">
-              2文字または3文字で入力してください
+              2~3文字の数字を入力してください
             </Form.Control.Feedback>
           </Form.Group>
         </Row>
