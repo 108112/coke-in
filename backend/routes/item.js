@@ -1,12 +1,12 @@
 const router = require("express").Router();
 const Item = require("../models/Item");
 
+//入庫用API
 router.post("/:id/receipt", async (req, res) => {
   try {
     const filter = {
       product: req.params.id,
       bestBefore: req.body.bestBefore,
-      location: { $in: [req.body.location] },
     };
     const update = {
       $inc: { quantity: req.body.quantity },
@@ -26,7 +26,6 @@ router.post("/:id/receipt", async (req, res) => {
       product: req.params.id,
       quantity: req.body.quantity,
       bestBefore: req.body.bestBefore,
-      location: req.body.location,
       receipt: true,
     }).save();
     return res.status(200).json({ message: "製品を入庫しました", newItem });
@@ -35,6 +34,7 @@ router.post("/:id/receipt", async (req, res) => {
   }
 });
 
+//出庫用API
 router.put("/:id/shipment", async (req, res) => {
   try {
     const update = {
@@ -51,6 +51,7 @@ router.put("/:id/shipment", async (req, res) => {
   }
 });
 
+//製品情報を表示するAPI
 router.get("/:id/select", async (req, res) => {
   try {
     const item = await Item.findById(req.params.id).populate("product");
@@ -63,6 +64,7 @@ router.get("/:id/select", async (req, res) => {
   }
 });
 
+//入庫済みの製品を全て表示するAPI
 router.get("/all", async (req, res) => {
   try {
     const items = await Item.find().populate("product");
@@ -75,6 +77,7 @@ router.get("/all", async (req, res) => {
   }
 });
 
+//検索用API
 router.get("/search", async (req, res) => {
   try {
     const query = req.query.q;

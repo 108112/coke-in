@@ -14,10 +14,6 @@ const ItemSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  location: {
-    type: Array,
-    default: []
-  },
   receipt: {
     type: Boolean,
     default: false,

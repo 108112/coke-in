@@ -22,7 +22,11 @@ app.use(cors({
 app.use(express.json());
 const productRouter = require("./routes/product");
 const itemRouter = require("./routes/item");
+const locationRouter = require("./routes/location");
+const sectionRouter = require('./routes/section')
 app.use("/api/products", productRouter);
 app.use("/api/items", itemRouter);
+app.use("/api/locations", locationRouter);
+app.use("/api/sections", sectionRouter);
 
 app.listen(port, () => console.log(`CokeIN listening on port ${port}`));
