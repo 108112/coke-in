@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setErrors, setValidate, setValues } from "../../../../features/formSlice";
 
 import { Col, Form, FormGroup, FormLabel, Row } from "react-bootstrap";
+import axios from "axios";
 
 export default function News() {
   const dispatch = useDispatch();
