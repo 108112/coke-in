@@ -1,7 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setErrors, setValidate, setValues } from "../../../../features/formSlice";
+import {
+  setErrors,
+  setValidate,
+  setValues,
+} from "../../../../features/formSlice";
 
 import { Col, Form, FormGroup, FormLabel, Row } from "react-bootstrap";
 import axios from "axios";
@@ -103,6 +107,11 @@ export default function News() {
             アイテム数を入力してください
           </Form.Control.Feedback>
         </FormGroup>
+      </Row>
+      <Row>
+        <Button type="submit" className="col-4 mx-auto" variant="cola">
+          送信
+        </Button>
       </Row>
     </Form>
   );
