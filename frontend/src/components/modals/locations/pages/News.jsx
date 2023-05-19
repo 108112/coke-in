@@ -7,7 +7,7 @@ import {
   setValues,
 } from "../../../../features/formSlice";
 
-import { Col, Form, FormGroup, FormLabel, Row } from "react-bootstrap";
+import { Button, Col, Form, FormGroup, FormLabel, Row } from "react-bootstrap";
 import axios from "axios";
 
 export default function News() {
