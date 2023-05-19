@@ -1,8 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
+import Sections from "./pages/Sections";
 
 import News from "./pages/News";
-import { setModalPages } from "../../../features/modalSlice";
+import { loading, setModalPages } from "../../../features/modalSlice";
+import { setLocations } from "../../../features/listSlice";
 
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { FiDownload, FiList, FiLogIn, FiLogOut, FiPlus } from "react-icons/fi";
@@ -14,7 +17,19 @@ export default function Locations() {
   const isLoading = useSelector((state) => state.modal.isLoading);
 
   const pages = {
-    News: <News />
+    News: <News />,
+    Sections: <Sections />
+  }
+
+  const handleDataFetch = async (page) => {
+    dispatch(loading());
+    try {
+      const response = await axios.get(`api/${page}/all`);
+      dispatch(setLocations(response.data));
+    } catch (err) {
+      console.log(err);
+    }
+    dispatch(loading());
   }
 
   const togglePages = (page) => {
@@ -24,7 +39,11 @@ export default function Locations() {
   const handleOpenNews = (e) => {
     e.preventDefault();
     togglePages("News");
-
+  }
+  const handleOpenSections = (e) => {
+    e.preventDefault();
+    handleDataFetch("locations");
+    togglePages("Sections");
   }
   return (
     <Container>
@@ -40,7 +59,7 @@ export default function Locations() {
             <span className="d-none d-sm-block">新規登録</span>
           </button>
           <button className="menuItem">
-            <FiLogIn className="d-block d-sm-none" />
+            <FiLogIn className="d-block d-sm-none" onClick={handleOpenSections} />
             <span className="d-none d-sm-block">番号を登録</span>
           </button>
           <button className="menuItem">

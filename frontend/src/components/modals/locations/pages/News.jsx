@@ -43,7 +43,7 @@ export default function News() {
 
   return (
     <Form noValidate validated={validate} onSubmit={handleSubmit}>
-      <h4 className="text-center">ロケーション情報を入力</h4>
+      <h4 className="text-center">ロケーション登録</h4>
       <Row className="d-flex justify-content-center mb-2">
         <FormGroup as={Col} md="5" controlId="floor">
           <FormLabel>階層</FormLabel>

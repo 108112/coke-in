@@ -6,8 +6,8 @@ const Item = require("../models/Item");
 router.post("/regist", async (req, res) => {
   try {
     const location = await Location.findOne({
-        "name.floor": req.body.floor,
-        "name.area": req.body.area,
+      "name.floor": req.body.floor,
+      "name.area": req.body.area,
     });
     if (location) {
       return res.status(409).json({ message: "登録済みのロケーションです" });
@@ -28,6 +28,18 @@ router.post("/regist", async (req, res) => {
   }
 });
 
+router.get("/:id/select", async (req, res) => {
+  try {
+    const location = await Location.findById(req.params.id);
+    if (!location) {
+      return res.status(404).json({ message: "ロケーションが存在しません" });
+    }
+    return res.status(200).json(location);
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+});
+
 router.get("/all", async (req, res) => {
   try {
     const location = await Location.find();
@@ -40,4 +52,4 @@ router.get("/all", async (req, res) => {
   }
 });
 
-module.exports =  router;
+module.exports = router;

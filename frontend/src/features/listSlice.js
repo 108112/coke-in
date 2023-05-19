@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   items: [],
+  locations: [],
   currentItem: "",
+  currentLocation: "",
 };
 
 export const listSlice = createSlice({
@@ -21,8 +23,21 @@ export const listSlice = createSlice({
     resetCurrentItem: (state) => {
       state.currentItem = "";
     },
+    setLocations: (state, action) => {
+      state.locations = [...action.payload];
+    },
+    setCurrentLocation: (state, action) => {
+      state.currentLocation = action.payload;
+    },
   },
 });
 
-export const { setItems, setCurrentItem, resetItems, resetCurrentItem } = listSlice.actions;
+export const {
+  setItems,
+  setCurrentItem,
+  resetItems,
+  resetCurrentItem,
+  setLocations,
+  setCurrentLocation,
+} = listSlice.actions;
 export default listSlice.reducer;
