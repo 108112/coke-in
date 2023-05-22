@@ -17,27 +17,21 @@ export const listSlice = createSlice({
     setCurrentItem: (state, action) => {
       state.currentItem = action.payload;
     },
-    resetItems: (state) => {
-      state.items = [];
-    },
-    resetCurrentItem: (state) => {
-      state.currentItem = "";
-    },
     setLocations: (state, action) => {
       state.locations = [...action.payload];
     },
     setCurrentLocation: (state, action) => {
       state.currentLocation = action.payload;
     },
+    resetList: () => initialState,
   },
 });
 
 export const {
   setItems,
   setCurrentItem,
-  resetItems,
-  resetCurrentItem,
   setLocations,
   setCurrentLocation,
+  resetList
 } = listSlice.actions;
 export default listSlice.reducer;

@@ -3,27 +3,18 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setModalPages, loading } from "../../../features/modalSlice";
-import {
-  resetErrors,
-  resetValues,
-  setValidate,
-} from "../../../features/formSlice";
+import { resetForm } from "../../../features/formSlice";
 
 import News from "./pages/News";
 import Receipts from "./pages/Receipts";
-import Storings from "./pages/Storings";
 import Shipments from "./pages/Shipments";
 import Lists from "./pages/Lists";
 
 import "./Products.css";
 
-import {
-  resetCurrentItem,
-  resetItems,
-  setItems,
-} from "../../../features/listSlice";
+import { resetList, setItems } from "../../../features/listSlice";
 
-import { FiPlus, FiLogIn, FiLogOut, FiDownload, FiList } from "react-icons/fi";
+import { FiPlus, FiLogIn, FiLogOut, FiList } from "react-icons/fi";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 
 export default function Products() {
@@ -34,18 +25,14 @@ export default function Products() {
   const pages = {
     News: <News />,
     Receipts: <Receipts />,
-    Storings: <Storings />,
     Shipments: <Shipments />,
     Lists: <Lists />,
   };
 
   const togglePages = (page) => {
     dispatch(setModalPages(page));
-    dispatch(resetItems());
-    dispatch(resetCurrentItem());
-    dispatch(resetValues());
-    dispatch(resetErrors());
-    dispatch(setValidate(false));
+    dispatch(resetList());
+    dispatch(resetForm());
   };
 
   const handleDataFetch = async (page) => {
@@ -68,11 +55,6 @@ export default function Products() {
     e.preventDefault();
     handleDataFetch("products");
     togglePages("Receipts");
-  };
-  const handleOpenStorings = (e) => {
-    e.preventDefault();
-    // handleDataFetch("items");
-    togglePages("Storings");
   };
   const handleOpenShipments = (e) => {
     e.preventDefault();
@@ -101,10 +83,6 @@ export default function Products() {
           <button className="menuItem" onClick={handleOpenReceipts}>
             <FiLogIn className="d-block d-sm-none" />
             <span className="d-none d-sm-block">入庫する</span>
-          </button>
-          <button className="menuItem" onClick={handleOpenStorings}>
-            <FiDownload className="d-block d-sm-none" />
-            <span className="d-none d-sm-block">格納する</span>
           </button>
           <button className="menuItem" onClick={handleOpenShipments}>
             <FiLogOut className="d-block d-sm-none" />

@@ -15,21 +15,15 @@ export const modalSlice = createSlice({
       state.isVisible = true;
       state.component = action.payload;
     },
-    inVisibleModal: (state) => {
-      state.isVisible = false;
-      state.component = null;
-    },
     setModalPages: (state, action) => {
       state.pages = action.payload;
     },
-    resetModalPages: (state) => {
-      state.pages = null;
-    },
     loading: (state) => {
       state.isLoading = !state.isLoading
-    }
+    },
+    resetModal: () => initialState,
   },
 });
 
-export const { visibleModal, inVisibleModal, setModalPages, resetModalPages, loading } = modalSlice.actions;
+export const { visibleModal, setModalPages, loading, resetModal } = modalSlice.actions;
 export default modalSlice.reducer;

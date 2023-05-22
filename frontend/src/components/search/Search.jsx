@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { resetItems, setItems } from "../../features/listSlice";
+import { resetList, setItems } from "../../features/listSlice";
 
 import { Form } from "react-bootstrap";
 
@@ -23,7 +23,7 @@ export default function Search() {
       dispatch(setItems(response.data));
     } catch (err) {
       if (err.response.status === 404) {
-        dispatch(resetItems());
+        dispatch(resetList())
       }
     }
   };

@@ -2,15 +2,12 @@ import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
+import { setCurrentItem, resetList } from "../../../../features/listSlice";
 import {
-  setCurrentItem,
-  resetCurrentItem,
-} from "../../../../features/listSlice";
-import {
-  resetValues,
   setErrors,
   setValues,
   setValidate,
+  resetForm,
 } from "../../../../features/formSlice";
 
 import Search from "../../../search/Search";
@@ -51,8 +48,8 @@ function Receipt() {
           values
         );
         alert(response.data.message);
-        dispatch(resetValues());
-        dispatch(resetCurrentItem());
+        dispatch(resetList());
+        dispatch(resetForm());
       } catch (err) {
         dispatch(setErrors(err.response.data.message));
       }

@@ -2,8 +2,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isMobile } from "react-device-detect";
 
-import { inVisibleModal, resetModalPages } from "../../features/modalSlice";
-import { resetCurrentItem } from "../../features/listSlice";
+import { resetModal } from "../../features/modalSlice";
+import { resetList } from "../../features/listSlice";
 
 import Products from "./products/Products";
 import Locations from "./locations/Locations";
@@ -22,9 +22,8 @@ export default function Modals() {
   };
 
   const handleCloseModals = (e) => {
-    dispatch(inVisibleModal());
-    dispatch(resetModalPages());
-    dispatch(resetCurrentItem());
+    dispatch(resetModal())
+    dispatch(resetList());
   };
 
   return (

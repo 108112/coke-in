@@ -14,26 +14,18 @@ export const formSlice = createSlice({
     setValues: (state, action) => {
       state.values = action.payload;
     },
-    resetValues: (state) => {
-      state.values = {};
-    },
     setTerm: (state, action) => {
       state.term = action.payload;
-    },
-    resetTerm: (state) => {
-      state.term = "";
     },
     setErrors: (state, action) => {
       state.errors = action.payload
     },
-    resetErrors: (state) => {
-      state.errors = null
-    },
     setValidate: (state, action) => {
       state.validate = action.payload
-    }
+    },
+    resetForm: () => initialState,
   },
 });
 
-export const { setValues, resetValues, setTerm, resetTerm, setErrors, resetErrors, setValidate } = formSlice.actions;
+export const { setValues, setTerm, setErrors, setValidate, resetForm } = formSlice.actions;
 export default formSlice.reducer;

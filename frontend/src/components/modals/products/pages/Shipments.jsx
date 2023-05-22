@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { resetCurrentItem } from "../../../../features/listSlice";
+import { resetList } from "../../../../features/listSlice";
 import {
-  resetValues,
+  resetForm,
   setErrors,
   setValues,
 } from "../../../../features/formSlice";
@@ -40,8 +40,8 @@ function Shipment() {
           values
         );
         alert(response.data.message);
-        dispatch(resetValues());
-        dispatch(resetCurrentItem());
+        dispatch(resetForm());
+        dispatch(resetList());
       } catch (err) {
         dispatch(setErrors(err.response.data.message));
       }
