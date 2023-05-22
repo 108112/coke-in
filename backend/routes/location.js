@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Location = require("../models/Location");
 const Item = require("../models/Item");
+const Section = require("../models/Section");
 
 //新しいロケーションを作成する
 router.post("/regist", async (req, res) => {
@@ -19,10 +20,24 @@ router.post("/regist", async (req, res) => {
       },
       col: req.body.col,
       row: req.body.row,
-    }).save();
+    });
+    for (let i = 0; newLocation.row > i; i++) {
+      let sectionName = "";
+      if(i <= 9 ) {
+        sectionName = `0${i + 1}`;
+      } else {
+        sectionName = `${i + 1}`;
+      }
+        const section = await new Section({
+          location: newLocation._id,
+          name: sectionName,
+        });
+        newLocation.sections.push(section);
+    }
+    const updateLocation = await newLocation.save();
     return res
       .status(200)
-      .json({ message: "新しいロケーションを登録しました", newLocation });
+      .json({ message: "新しいロケーションを登録しました", updateLocation });
   } catch (err) {
     return res.status(500).json(err);
   }
