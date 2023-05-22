@@ -121,5 +121,7 @@ function Shipment() {
 }
 
 export default function Shipments() {
+  const currentItem = useSelector((state) => state.list.currentItem);
+
   return <div>{currentItem ? <Shipment /> : <Lists />}</div>;
 }

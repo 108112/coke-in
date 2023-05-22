@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 import News from "./pages/News";
+import Lists from "./pages/Lists"
+
 import { loading, setModalPages } from "../../../features/modalSlice";
 import { setLocations } from "../../../features/listSlice";
 
@@ -17,7 +19,7 @@ export default function Locations() {
 
   const pages = {
     News: <News />,
-    Sections: <Sections />
+    Lists: <Lists />
   }
 
   const handleDataFetch = async (page) => {
@@ -42,7 +44,7 @@ export default function Locations() {
   const handleOpenSections = (e) => {
     e.preventDefault();
     handleDataFetch("locations");
-    togglePages("Sections");
+    togglePages("Lists");
   }
   return (
     <Container>

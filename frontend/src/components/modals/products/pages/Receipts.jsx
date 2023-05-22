@@ -26,9 +26,9 @@ import {
   Table,
 } from "react-bootstrap";
 
-function Receipt() {
-  const dispatch = useDispatch();
+const dispatch = useDispatch();
 
+function Receipt() {
   const currentItem = useSelector((state) => state.list.currentItem);
   const values = useSelector((state) => state.form.values);
   const validate = useSelector((state) => state.form.validate);
