@@ -36,7 +36,7 @@ function Shipment() {
     } else {
       try {
         const response = await axios.put(
-          `/items/${currentItem._id}/shipment`,
+          `/api/items/${currentItem._id}/shipment`,
           values
         );
         alert(response.data.message);
