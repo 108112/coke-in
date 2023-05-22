@@ -26,9 +26,8 @@ import {
   Table,
 } from "react-bootstrap";
 
-const dispatch = useDispatch();
-
 function Receipt() {
+  const dispatch = useDispatch();
   const currentItem = useSelector((state) => state.list.currentItem);
   const values = useSelector((state) => state.form.values);
   const validate = useSelector((state) => state.form.validate);
@@ -137,6 +136,7 @@ function Receipt() {
 
 function ReceiptLists() {
   const items = useSelector((state) => state.list.items);
+  const dispatch = useDispatch();
 
   const selectItem = async (id) => {
     try {
