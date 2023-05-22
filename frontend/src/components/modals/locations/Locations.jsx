@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import Sections from "./pages/Sections";
 
 import News from "./pages/News";
 import { loading, setModalPages } from "../../../features/modalSlice";
