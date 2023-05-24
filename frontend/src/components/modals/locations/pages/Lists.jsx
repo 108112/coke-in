@@ -10,9 +10,7 @@ export default function Lists() {
       {locations.map((location) => {
         <Accordion.Item>
           <Accordion.Header>{`${location.name.floor}${location.name.area}`}</Accordion.Header>
-          {location.sections.map((section) => {
-            <Accordion.Body>{section.name}</Accordion.Body>;
-          })}
+          <Accordion.Body>locaiton</Accordion.Body>
         </Accordion.Item>;
       })}
     </Accordion>
