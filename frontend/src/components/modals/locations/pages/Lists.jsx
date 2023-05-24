@@ -9,14 +9,14 @@ export default function Lists() {
   const locations = useSelector((state) => state.list.locations);
   const currentSection = useSelector((state) => state.list.currentSection);
 
-  const selectSection = async (id) => {
-    try {
-      const response = await axios.get(`/api/locations/${id}/select`);
-      dispatch(setCurrentSection(response.data));
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const selectSection = async (id) => {
+  //   try {
+  //     const response = await axios.get(`/api/locations/${id}/select`);
+  //     dispatch(setCurrentSection(response.data));
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   return (
     <Accordion>
@@ -25,9 +25,7 @@ export default function Lists() {
           <Accordion.Item key={location._id} eventKey={location._id}>
             <Accordion.Header>{`${location.name.floor}${location.name.area}`}</Accordion.Header>
             {location.sections.map((section) => {
-              <Accordion.Body onClick={() => selectSection(section._id)}>
-                {section.name}
-              </Accordion.Body>;
+              <Accordion.Body>{section.name}</Accordion.Body>;
             })}
           </Accordion.Item>
         );
