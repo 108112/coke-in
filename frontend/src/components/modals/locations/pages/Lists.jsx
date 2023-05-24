@@ -24,9 +24,7 @@ export default function Lists() {
         return (
           <Accordion.Item key={location._id} eventKey={location._id}>
             <Accordion.Header>{`${location.name.floor}${location.name.area}`}</Accordion.Header>
-            {location.sections.map((section) => {
-              <Accordion.Body>{`${section.name}`}</Accordion.Body>;
-            })}
+            <Accordion.Body>{location.sections[0].name}</Accordion.Body>
           </Accordion.Item>
         );
       })}
