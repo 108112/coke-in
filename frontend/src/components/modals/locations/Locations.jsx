@@ -41,7 +41,7 @@ export default function Locations() {
     e.preventDefault();
     togglePages("News");
   }
-  const handleOpenSections = (e) => {
+  const handleOpenLists = (e) => {
     e.preventDefault();
     handleDataFetch("locations");
     togglePages("Lists");
@@ -57,25 +57,12 @@ export default function Locations() {
         >
           <button className="menuItem" onClick={handleOpenNews}>
             <FiPlus className="d-block d-sm-none" />
-            <span className="d-none d-sm-block">新規登録</span>
+            <span className="d-none d-sm-block">ロケーション登録</span>
           </button>
           <button className="menuItem">
-            <FiLogIn className="d-block d-sm-none" onClick={handleOpenSections} />
-            <span className="d-none d-sm-block">番号を登録</span>
-          </button>
-          <button className="menuItem">
-            <FiDownload className="d-block d-sm-none" />
+            <FiDownload className="d-block d-sm-none" onClick={handleOpenLists} />
             <span className="d-none d-sm-block">格納する</span>
           </button>
-          <button className="menuItem">
-            <FiLogOut className="d-block d-sm-none" />
-            <span className="d-none d-sm-block">出庫する</span>
-          </button>
-          <button className="menuItem">
-            <FiList className="d-block d-sm-none" />
-            <span className="d-none d-sm-block">製品一覧</span>
-          </button>
-          <button className="menuItem">入出荷履歴</button>
         </Col>
         <Col xs={10} md={9}>
           <div>
