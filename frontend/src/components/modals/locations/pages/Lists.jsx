@@ -9,7 +9,7 @@ export default function Lists() {
     <Accordion>
       {locations.map((location) => {
         <Accordion.Item eventKey={location._id}>
-          <Accordion.Header>{location.name}</Accordion.Header>
+          <Accordion.Header>{`${location.name.floor}-${location.name.area}`}</Accordion.Header>
           <Accordion.Body>
             location
           </Accordion.Body>
