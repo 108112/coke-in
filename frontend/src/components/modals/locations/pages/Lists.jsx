@@ -10,8 +10,12 @@ export default function Lists() {
       {locations.map((location) => {
         return (
           <Accordion.Item key={location._id} eventKey={location._id}>
-            <Accordion.Header>{`${location.name.floor}-${location.name.area}`}</Accordion.Header>
-            <Accordion.Body>location</Accordion.Body>
+            <Accordion.Header>{`${location.name.floor}${location.name.area}`}</Accordion.Header>
+            <Accordion.Body>
+              <Accordion>
+                {location.sections.map((section) => section)}
+              </Accordion>
+            </Accordion.Body>
           </Accordion.Item>
         );
       })}
