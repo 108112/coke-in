@@ -12,7 +12,7 @@ export default function Lists() {
           <Accordion.Item key={location._id} eventKey={location._id}>
             <Accordion.Header>{`${location.name.floor}${location.name.area}`}</Accordion.Header>
             <Accordion.Body>
-             {location.sections}
+             {location.sections[0]}
             </Accordion.Body>
           </Accordion.Item>
         );
