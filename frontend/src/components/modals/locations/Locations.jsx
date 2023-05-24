@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 import News from "./pages/News";
-import Lists from "./pages/Lists"
+import Lists from "./pages/Lists";
 
 import { loading, setModalPages } from "../../../features/modalSlice";
 import { setLocations } from "../../../features/listSlice";
@@ -19,8 +19,8 @@ export default function Locations() {
 
   const pages = {
     News: <News />,
-    Lists: <Lists />
-  }
+    Lists: <Lists />,
+  };
 
   // const handleDataFetch = async (page) => {
   //   dispatch(loading());
@@ -35,16 +35,16 @@ export default function Locations() {
 
   const togglePages = (page) => {
     dispatch(setModalPages(page));
-  }
+  };
 
   const handleOpenNews = (e) => {
     e.preventDefault();
     togglePages("News");
-  }
+  };
   const handleOpenLists = (e) => {
     e.preventDefault();
     togglePages("Lists");
-  }
+  };
   return (
     <Container>
       <Row>
@@ -58,8 +58,8 @@ export default function Locations() {
             <FiPlus className="d-block d-sm-none" />
             <span className="d-none d-sm-block">ロケーション登録</span>
           </button>
-          <button className="menuItem">
-            <FiDownload className="d-block d-sm-none" onClick={handleOpenLists} />
+          <button className="menuItem" onClick={handleOpenLists}>
+            <FiDownload className="d-block d-sm-none" />
             <span className="d-none d-sm-block">格納する</span>
           </button>
         </Col>
