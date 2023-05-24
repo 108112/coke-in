@@ -19,15 +19,6 @@ export default function Lists() {
   // };
 
   return (
-    <Accordion>
-      {locations.map((location) => {
-        return (
-          <Accordion.Item key={location._id} eventKey={location._id}>
-            <Accordion.Header>{`${location.name.floor}${location.name.area}`}</Accordion.Header>
-            <Accordion.Body></Accordion.Body>
-          </Accordion.Item>
-        );
-      })}
-    </Accordion>
-  );
+    <div>Lists</div>
+  )
 }
