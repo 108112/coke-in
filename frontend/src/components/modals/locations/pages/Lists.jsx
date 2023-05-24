@@ -13,7 +13,12 @@ export default function Lists() {
             <Accordion.Header>{`${location.name.floor}${location.name.area}`}</Accordion.Header>
             <Accordion.Body>
               <Accordion>
-                {location.sections.map((section) => section)}
+                {location.sections.map((section) => {
+                  <Accordion.Item key={section._id} eventKey={section._id}>
+                    <Accordion.Header>{section.name}</Accordion.Header>
+                    <Accordion.Body>location</Accordion.Body>
+                  </Accordion.Item>
+                })}
               </Accordion>
             </Accordion.Body>
           </Accordion.Item>
