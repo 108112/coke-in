@@ -16,18 +16,7 @@ export default function Lists() {
                 return (
                   <Accordion.Item eventKey={section._id}>
                     <Accordion.Header>{section.name}</Accordion.Header>
-                    <Accordion.Body>
-                      <Accordion>
-                        {section.items.map((item) => {
-                          return (
-                            <Accordion.Item eventKey={item._id}>
-                              <Accordion.Header>{item.name}</Accordion.Header>
-                              <Accordion.Body>{item.quantity}</Accordion.Body>
-                            </Accordion.Item>
-                          );
-                        })}
-                      </Accordion>
-                    </Accordion.Body>
+                    <Accordion.Body>{section.item.map((item) => item.name)}</Accordion.Body>
                   </Accordion.Item>
                 );
               })}
