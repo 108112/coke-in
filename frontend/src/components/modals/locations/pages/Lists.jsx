@@ -1,9 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Accordion } from "react-bootstrap";
+import axios from "axios";
+import { setCurrentSection } from "../../../../features/listSlice";
 
 export default function Lists() {
+  const dispatch = useDispatch();
   const locations = useSelector((state) => state.list.locations);
+  const currentSection = useSelector((state) => state.list.currentSection);
+
+  const selectSection = async (id) => {
+    try {
+      const response = await axios.get(`/api/locations/${id}/select`);
+      dispatch(setCurrentSection(response.data));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Accordion>
@@ -11,14 +24,11 @@ export default function Lists() {
         return (
           <Accordion.Item key={location._id} eventKey={location._id}>
             <Accordion.Header>{`${location.name.floor}${location.name.area}`}</Accordion.Header>
-            <Accordion.Body>
-             {location.sections.map((section) => {
-              <Accordion.Item key={section._id} eventKey={section._id}>
-                <Accordion.Header>{section.name}</Accordion.Header>
-                <Accordion.Body>name</Accordion.Body>
-              </Accordion.Item>
+            {location.sections.map((section) => {
+              <Accordion.Body onClick={() => selectSection(section._id)}>
+                {section.name}
+              </Accordion.Body>;
             })}
-            </Accordion.Body>
           </Accordion.Item>
         );
       })}

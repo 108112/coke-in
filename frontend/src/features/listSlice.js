@@ -4,7 +4,7 @@ const initialState = {
   items: [],
   locations: [],
   currentItem: "",
-  currentLocation: "",
+  currentSection: "",
 };
 
 export const listSlice = createSlice({
@@ -20,8 +20,8 @@ export const listSlice = createSlice({
     setLocations: (state, action) => {
       state.locations = [...action.payload];
     },
-    setCurrentLocation: (state, action) => {
-      state.currentLocation = action.payload;
+    setCurrentSection: (state, action) => {
+      state.currentSection = action.payload;
     },
     resetList: () => initialState,
   },
@@ -31,7 +31,7 @@ export const {
   setItems,
   setCurrentItem,
   setLocations,
-  setCurrentLocation,
+  setCurrentSection,
   resetList
 } = listSlice.actions;
 export default listSlice.reducer;
