@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Lists() {
   const locations = useSelector((state) => state.list.locations);
   return (
-    <Accordion>
+    <Accordion defaultActiveKey={0}>
       {locations.map((location) => {
         return (
           <Accordion.Item eventKey={location._id} key={location._id}>
             <Accordion.Header>{`${location.name.floor}${location.name.area}`}</Accordion.Header>
             <Accordion.Body>
-              <Accordion>
+              <Accordion defaultActiveKey={0} flush>
                 {location.sections.map((section) => {
                   return (
                     <Accordion.Item key={section._id} eventKey={section._id}>
