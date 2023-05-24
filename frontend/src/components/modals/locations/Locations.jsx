@@ -22,16 +22,16 @@ export default function Locations() {
     Lists: <Lists />,
   };
 
-  // const handleDataFetch = async (page) => {
-  //   dispatch(loading());
-  //   try {
-  //     const response = await axios.get(`api/${page}/all`);
-  //     dispatch(setLocations(response.data));
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  //   dispatch(loading());
-  // }
+  const handleDataFetch = async (page) => {
+    dispatch(loading());
+    try {
+      const response = await axios.get(`api/${page}/all`);
+      dispatch(setLocations(response.data));
+    } catch (err) {
+      console.log(err);
+    }
+    dispatch(loading());
+  }
 
   const togglePages = (page) => {
     dispatch(setModalPages(page));
@@ -43,6 +43,7 @@ export default function Locations() {
   };
   const handleOpenLists = (e) => {
     e.preventDefault();
+    handleDataFetch("locations")
     togglePages("Lists");
   };
   return (
