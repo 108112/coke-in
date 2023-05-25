@@ -65,3 +65,6 @@ router.get("/all", async (req, res) => {
 });
 
 module.exports = router;
+
+//sectionsSchema => itemをid参照にした
+//populateでitemを参照させる

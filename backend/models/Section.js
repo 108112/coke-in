@@ -10,8 +10,8 @@ const SectionSchema = new mongoose.Schema({
     type: String,
   },
   item: {
-    type: Array,
-    default: [],
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Item",
   },
 });
 
