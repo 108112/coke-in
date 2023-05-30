@@ -41,7 +41,7 @@ router.post("/regist", async (req, res) => {
   }
 });
 
-router.get("/:id/select", async (req, res) => {
+router.get("/section/:id/select", async (req, res) => {
   try {
     const section = await Section.findById(req.params.id);
     return res.status(200).json(section);
