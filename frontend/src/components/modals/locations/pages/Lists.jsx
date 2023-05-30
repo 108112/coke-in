@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Lists() {
   const locations = useSelector((state) => state.list.locations);
   return (
-    <Accordion defaultActiveKey={0}>
+    <Accordion>
       {locations.map((location) => {
         return (
           <Accordion.Item eventKey={location._id} key={location._id}>
