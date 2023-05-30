@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import ProductLists from "../../products/pages/ProductLists";
 
-import { setCurrentSection } from "../../../../features/listSlice";
+import { setCurrentSection, setItems } from "../../../../features/listSlice";
 
 import { Accordion } from "react-bootstrap";
 import { loading } from "../../../../features/modalSlice";
@@ -33,7 +33,7 @@ function AccordionList() {
       console.log(err.response.data.message);
     }
   };
-  
+
   return (
     <Accordion>
       {locations.map((location) => {
