@@ -9,11 +9,12 @@ export default function Lists() {
   const locations = useSelector((state) => state.list.locations);
 
   const selectSection = async (id) => {
-    e.preventDefault();
     try {
       const response = await axios.get(`/api/locations/${id}/select`);
       dispatch(setCurrentSection(response.data));
-    } catch (err) {}
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
   };
   return (
     <Accordion>
