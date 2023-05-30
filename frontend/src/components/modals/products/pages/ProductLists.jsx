@@ -49,7 +49,7 @@ export default function ProductLists() {
             return (
               <tr
                 key={item._id}
-                onClick={() => pages === "Regist" && selectItem(item._id) || pages === "LocationList" && storingItem(currentSection._id, item._id)}
+                onClick={() => pages === "Regist" && selectItem(item._id) || pages === "LocationLists" && storingItem(currentSection._id, item._id)}
               >
                 <td className="col-1">{item.product.code.JS}</td>
                 <td className="col-1">{item.product.code.branch}</td>
