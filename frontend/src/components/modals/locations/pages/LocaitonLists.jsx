@@ -23,7 +23,6 @@ function AccordionList() {
     dispatch(loading());
   };
 
-
   const selectSection = async (id) => {
     try {
       const response = await axios.get(`/api/locations/section/${id}/select`);

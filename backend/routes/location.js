@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Location, Section } = require("../models/Location");
+const Location = require("../models/Location");
 const Item = require("../models/Item");
 
 //新しいロケーションを作成する
@@ -22,22 +22,15 @@ router.post("/regist", async (req, res) => {
       sections: [],
     });
     for (let i = 0; newLocation.row > i; i++) {
-      let sectionName = "";
-      if (i <= 9) {
-        sectionName = `0${i + 1}`;
-      } else {
-        sectionName = `${i + 1}`;
-      }
-      const section = await new Section({
-        location: newLocation._id,
+      let sectionName = (i + 1).toString().padStart(2, "0");
+      newLocation.sections.push({
         name: sectionName,
-      }).save();
-      newLocation.sections.push(section);
+      });
     }
-    const updateLocation = await newLocation.save();
+    await newLocation.save();
     return res
       .status(200)
-      .json({ message: "新しいロケーションを登録しました", updateLocation });
+      .json({ message: "新しいロケーションを登録しました", newLocation });
   } catch (err) {
     return res.status(500).json(err);
   }
@@ -45,7 +38,9 @@ router.post("/regist", async (req, res) => {
 
 router.get("/section/:id/select", async (req, res) => {
   try {
-    const section = await Section.findById(req.params.id);
+    const section = await Location.findOne({
+      "sections._id": req.params.id,
+    });
     return res.status(200).json(section);
   } catch (err) {
     return res.status(500).json({ message: err.message });
@@ -55,18 +50,15 @@ router.get("/section/:id/select", async (req, res) => {
 router.post("/section/:id/storing", async (req, res) => {
   try {
     const item = await Item.findById(req.query.id).populate("product");
-    const updateSection = await Section.findByIdAndUpdate(req.params.id, {
-      item: item._id,
-    }).populate("item");
+    const updateLocation = await Location.findOneAndUpdate(
+      { "sections.section._id": req.params.id },
+      { "sections.section.item": item._id },
+      { new: true }
+    ).populate("item");
 
-    const location = await Location.findOneAndUpdate(
-      {
-        "sections._id": updateSection._id,
-      },
-      { $set: { "sections.$.section.item": updateSection.item } }
-    );
-
-    return res.status(200).json({ message: `${item.name}を格納しました` });
+    return res
+      .status(200)
+      .json({ message: `${updateLocation.item.product.name}を格納しました` });
   } catch (err) {
     return res.status(500).json(err);
   }
