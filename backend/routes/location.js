@@ -43,7 +43,7 @@ router.post("/regist", async (req, res) => {
 
 router.get("/section/:id/select", async (req, res) => {
   try {
-    const section = await Location.findById(req.params.id);
+    const section = await Section.findById(req.params.id);
     return res.status(200).json(section);
   } catch (err) {
     return res.status(500).json({ message: err.message });

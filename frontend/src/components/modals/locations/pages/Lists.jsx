@@ -1,10 +1,13 @@
 import React from "react";
 import axios from "axios";
-import { setCurrentSection } from "../../../../features/listSlice";
-import { Accordion } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function Lists() {
+import { setCurrentSection } from "../../../../features/listSlice";
+import Lists from "../../products/pages/Lists"
+
+import { Accordion } from "react-bootstrap";
+
+function LocationList() {
   const dispatch = useDispatch();
   const locations = useSelector((state) => state.list.locations);
 
@@ -42,4 +45,9 @@ export default function Lists() {
       })}
     </Accordion>
   );
+}
+
+export default function Lists() {
+  const currentSection = useSelector((state) => state.list.currentSection);
+  return <div>{currentSection ? <Lists /> : <LocationList />}</div>
 }
