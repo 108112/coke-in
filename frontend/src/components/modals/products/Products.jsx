@@ -8,7 +8,6 @@ import { resetForm } from "../../../features/formSlice";
 import News from "./pages/News";
 import Receipts from "./pages/Receipts";
 import Shipments from "./pages/Shipments";
-import Lists from "./pages/Lists";
 
 import "./Products.css";
 
@@ -16,6 +15,7 @@ import { resetList, setItems } from "../../../features/listSlice";
 
 import { FiPlus, FiLogIn, FiLogOut, FiList } from "react-icons/fi";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
+import ProductLists from "./pages/ProductLists";
 
 export default function Products() {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ export default function Products() {
     News: <News />,
     Receipts: <Receipts />,
     Shipments: <Shipments />,
-    Lists: <Lists />,
+    Lists: <ProductLists />,
   };
 
   const togglePages = (page) => {
