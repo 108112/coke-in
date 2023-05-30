@@ -7,6 +7,7 @@ const SectionSchema = new mongoose.Schema({
   item: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Item",
+    default: "空き"
   },
 });
 
