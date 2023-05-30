@@ -6,7 +6,7 @@ import News from "./pages/News";
 import LocaitonLists from "./pages/LocaitonLists";
 
 import { loading, setModalPages } from "../../../features/modalSlice";
-import { setLocations } from "../../../features/listSlice";
+import { resetList, setLocations } from "../../../features/listSlice";
 
 import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { FiDownload, FiPlus } from "react-icons/fi";
@@ -34,6 +34,7 @@ export default function Locations() {
   }
 
   const togglePages = (page) => {
+    dispatch(resetList());
     dispatch(setModalPages(page));
   };
 
