@@ -12,6 +12,7 @@ export default function Lists() {
     try {
       const response = await axios.get(`/api/locations/section/${id}/select`);
       dispatch(setCurrentSection(response.data));
+      console.log(response.data)
     } catch (err) {
       console.log(err.response.data.message);
     }
