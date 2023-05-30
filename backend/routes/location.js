@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Location, Section } = require("../models/Location");
+const Item = require('../models/Item');
 
 //新しいロケーションを作成する
 router.post("/regist", async (req, res) => {
@@ -49,6 +50,18 @@ router.get("/section/:id/select", async (req, res) => {
     return res.status(500).json({ message: err.message });
   }
 });
+
+router.post('/section/:id/storing', async (req, res) => {
+  try {
+    const item = await Item.findById(req.query.id);
+    const section = await Section.findByIdAndUpdate(req.params.id, {
+      item: item._id,
+    });
+    return res.status(200).json({message: `${item.name}を格納しました`})
+  } catch (err) {
+    return res.status(500).json(err)
+  }
+})
 
 router.get("/all", async (req, res) => {
   try {

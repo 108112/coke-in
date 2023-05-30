@@ -26,7 +26,7 @@ export default function Products() {
     News: <News />,
     Receipts: <Receipts />,
     Shipments: <Shipments />,
-    Lists: <ProductLists />,
+    ProductLists: <ProductLists />,
   };
 
   const togglePages = (page) => {
@@ -64,7 +64,7 @@ export default function Products() {
   const handleOpenLists = (e) => {
     e.preventDefault();
     handleDataFetch("items");
-    togglePages("Lists");
+    togglePages("ProductLists");
   };
 
   return (

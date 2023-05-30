@@ -10,6 +10,7 @@ export default function ProductLists() {
   const dispatch = useDispatch();
 
   const items = useSelector((state) => state.list.items);
+  const currentSection = useSelector((state) => state.list.currentSection);
   const pages = useSelector((state) => state.modal.pages);
 
   const selectItem = async (id) => {
@@ -20,6 +21,15 @@ export default function ProductLists() {
       console.log(err);
     }
   };
+
+  const storingItem = async (sectionId, itemId) => {
+    try {
+      const response = await axios.post(`/api/locations/section/${sectionId}/storing?id=${itemId}`);
+      alert(response.data.message);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <Container fluid>
@@ -39,7 +49,7 @@ export default function ProductLists() {
             return (
               <tr
                 key={item._id}
-                onClick={() => pages !== "Lists" && selectItem(item._id)}
+                onClick={() => pages === "Regist" && selectItem(item._id) || pages === "LocationList" && storingItem(currentSection._id, item._id)}
               >
                 <td className="col-1">{item.product.code.JS}</td>
                 <td className="col-1">{item.product.code.branch}</td>

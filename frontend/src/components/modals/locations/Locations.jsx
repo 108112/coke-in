@@ -19,7 +19,7 @@ export default function Locations() {
 
   const pages = {
     News: <News />,
-    Lists: <LocaitonLists />,
+    LocationLists: <LocaitonLists />,
   };
 
   const handleDataFetch = async (page) => {
@@ -44,7 +44,7 @@ export default function Locations() {
   const handleOpenLists = (e) => {
     e.preventDefault();
     handleDataFetch("locations")
-    togglePages("Lists");
+    togglePages("LocationLists");
   };
   return (
     <Container>
