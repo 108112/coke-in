@@ -1,13 +1,13 @@
 import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import ProductLists from "../../products/pages/ProductLists";
 
 import { setCurrentSection } from "../../../../features/listSlice";
-import Lists from "../../products/pages/Lists"
 
 import { Accordion } from "react-bootstrap";
 
-function LocationList() {
+function AccordionList() {
   const dispatch = useDispatch();
   const locations = useSelector((state) => state.list.locations);
 
@@ -15,7 +15,7 @@ function LocationList() {
     try {
       const response = await axios.get(`/api/locations/section/${id}/select`);
       dispatch(setCurrentSection(response.data));
-      console.log(response.data)
+      console.log(response.data);
     } catch (err) {
       console.log(err.response.data.message);
     }
@@ -32,7 +32,9 @@ function LocationList() {
                   return (
                     <Accordion.Item eventKey={section._id} key={section._id}>
                       <Accordion.Header>{section.name}</Accordion.Header>
-                      <Accordion.Body onClick={() => selectSection(section._id)}>
+                      <Accordion.Body
+                        onClick={() => selectSection(section._id)}
+                      >
                         {section.item ? section.item.name : "空き"}
                       </Accordion.Body>
                     </Accordion.Item>
@@ -49,5 +51,5 @@ function LocationList() {
 
 export default function Lists() {
   const currentSection = useSelector((state) => state.list.currentSection);
-  return <div>{currentSection ? <Lists /> : <LocationList />}</div>
+  return <div>{currentSection ? <ProductLists /> : <AccordionList />}</div>;
 }

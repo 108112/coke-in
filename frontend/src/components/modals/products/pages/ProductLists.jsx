@@ -6,7 +6,7 @@ import { Container, Table } from "react-bootstrap";
 import { setCurrentItem } from "../../../../features/listSlice";
 import axios from "axios";
 
-export default function Lists() {
+export default function ProductLists() {
   const dispatch = useDispatch();
 
   const items = useSelector((state) => state.list.items);

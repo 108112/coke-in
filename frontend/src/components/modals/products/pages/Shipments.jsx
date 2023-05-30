@@ -10,7 +10,7 @@ import {
 } from "../../../../features/formSlice";
 
 import { Button, Col, Form, FormGroup, ListGroup, Row } from "react-bootstrap";
-import Lists from "./Lists";
+import ProductLists from "./ProductLists";
 
 function Shipment() {
   const dispatch = useDispatch();
@@ -125,5 +125,5 @@ function Shipment() {
 export default function Shipments() {
   const currentItem = useSelector((state) => state.list.currentItem);
 
-  return <div>{currentItem ? <Shipment /> : <Lists />}</div>;
+  return <div>{currentItem ? <Shipment /> : <ProductLists />}</div>;
 }
