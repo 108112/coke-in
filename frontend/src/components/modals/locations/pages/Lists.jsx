@@ -14,8 +14,8 @@ export default function Lists() {
               {location.sections.map((section) => {
                 return (
                   <ListGroup key={section._id} horizontal>
-                    <ListGroup.Item>{section.name}</ListGroup.Item>
-                    <ListGroup.Item>空き</ListGroup.Item>
+                    <ListGroup.Item md={3}>{section.name}</ListGroup.Item>
+                    <ListGroup.Item md={9}>空き</ListGroup.Item>
                   </ListGroup>
                 );
               })}
