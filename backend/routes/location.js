@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Location, Section } = require("../models/Location");
-const Item = require('../models/Item');
+const Item = require("../models/Item");
 
 //新しいロケーションを作成する
 router.post("/regist", async (req, res) => {
@@ -23,7 +23,7 @@ router.post("/regist", async (req, res) => {
     });
     for (let i = 0; newLocation.row > i; i++) {
       let sectionName = "";
-      if(i <= 9 ) {
+      if (i <= 9) {
         sectionName = `0${i + 1}`;
       } else {
         sectionName = `${i + 1}`;
@@ -52,22 +52,25 @@ router.get("/section/:id/select", async (req, res) => {
   }
 });
 
-router.post('/section/:id/storing', async (req, res) => {
+router.post("/section/:id/storing", async (req, res) => {
   try {
-    const item = await Item.findById(req.query.id).populate('product');
-    const section = await Section.findByIdAndUpdate(req.params.id, {
+    const item = await Item.findById(req.query.id).populate("product");
+    const updateSection = await Section.findByIdAndUpdate(req.params.id, {
       item: item._id,
-    });
-    await Location.findOneAndUpdate(
-      {sections: { $elemMatch: { _id: section._id}}},
-      {$set: {"sections.$.item": item._id}},
-      {new: true}
-    )
-    return res.status(200).json({message: `${item.product.name}を格納しました`})
+    }).populate("item");
+
+    const location = await Location.findOneAndUpdate(
+      {
+        "sections._id": updateSection._id,
+      },
+      { $set: { "sections.$.section.item": updateSection.item } }
+    );
+
+    return res.status(200).json({ message: `${item.name}を格納しました` });
   } catch (err) {
-    return res.status(500).json(err)
+    return res.status(500).json(err);
   }
-})
+});
 
 router.get("/all", async (req, res) => {
   try {
