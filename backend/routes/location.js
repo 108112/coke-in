@@ -29,6 +29,7 @@ router.post("/regist", async (req, res) => {
         sectionName = `${i + 1}`;
       }
       const section = await new Section({
+        location: newLocation._id,
         name: sectionName,
       }).save();
       newLocation.sections.push(section);
@@ -56,7 +57,12 @@ router.post('/section/:id/storing', async (req, res) => {
     const item = await Item.findById(req.query.id).populate('product');
     const section = await Section.findByIdAndUpdate(req.params.id, {
       item: item._id,
-    }).populate('item');
+    });
+    await Location.findOneAndUpdate(
+      {sections: { $elemMatch: { _id: section._id}}},
+      {$set: {"sections.$.item": item._id}},
+      {new: true}
+    )
     return res.status(200).json({message: `${item.product.name}を格納しました`})
   } catch (err) {
     return res.status(500).json(err)

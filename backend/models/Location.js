@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const SectionSchema = new mongoose.Schema({
+  location: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Location"
+  },
   name: {
     type: String,
   },
