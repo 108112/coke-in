@@ -15,7 +15,7 @@ export default function Lists() {
                 return (
                   <ListGroup key={section._id} horizontal>
                     <ListGroup.Item as={3}>{section.name}</ListGroup.Item>
-                    <ListGroup.Item as={9}>{section.item}</ListGroup.Item>
+                    <ListGroup.Item as={9}>{section.item._id}</ListGroup.Item>
                   </ListGroup>
                 );
               })}
