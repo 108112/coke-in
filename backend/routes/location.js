@@ -1,7 +1,5 @@
 const router = require("express").Router();
-const Location = require("../models/Location");
-const Item = require("../models/Item");
-const Section = require("../models/Section");
+const { Location, Section } = require("../models/Location");
 
 //新しいロケーションを作成する
 router.post("/regist", async (req, res) => {
@@ -20,6 +18,7 @@ router.post("/regist", async (req, res) => {
       },
       col: req.body.col,
       row: req.body.row,
+      sections: [],
     });
     for (let i = 0; newLocation.row > i; i++) {
       let sectionName = "";
@@ -28,11 +27,10 @@ router.post("/regist", async (req, res) => {
       } else {
         sectionName = `${i + 1}`;
       }
-        const section = await new Section({
-          location: newLocation._id,
-          name: sectionName,
-        });
-        newLocation.sections.push(section);
+      const section = await new Section({
+        name: sectionName,
+      });
+      newLocation.sections.push(section);
     }
     const updateLocation = await newLocation.save();
     return res
@@ -56,7 +54,9 @@ router.get("/all", async (req, res) => {
   try {
     const location = await Location.find();
     if (!location) {
-      res.status(404).json({ message: "ロケーションが登録されていません" });
+      return res
+        .status(404)
+        .json({ message: "ロケーションが登録されていません" });
     }
     return res.status(200).json(location);
   } catch (err) {
@@ -65,6 +65,3 @@ router.get("/all", async (req, res) => {
 });
 
 module.exports = router;
-
-//sectionsSchema => itemをid参照にした
-//populateでitemを参照させる

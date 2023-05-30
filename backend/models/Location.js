@@ -1,9 +1,19 @@
 const mongoose = require("mongoose");
 
+const SectionSchema = new mongoose.Schema({
+  name: {
+    type: String,
+  },
+  item: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Item",
+  },
+});
+
 const LocationSchema = new mongoose.Schema({
   station: {
     type: String,
-    default: "ST"
+    default: "ST",
   },
   name: {
     floor: {
@@ -14,7 +24,7 @@ const LocationSchema = new mongoose.Schema({
     },
   },
   sections: {
-    type: Array,
+    type: [SectionSchema],
     default: [],
   },
   col: {
@@ -27,4 +37,7 @@ const LocationSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Location", LocationSchema);
+const Location = mongoose.model("Location", LocationSchema);
+const Section = mongoose.model("Section", SectionSchema);
+
+module.exports = { Location, Section };
