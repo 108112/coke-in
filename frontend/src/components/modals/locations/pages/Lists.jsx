@@ -1,5 +1,5 @@
 import React from "react";
-import { Accordion, ListGroup } from "react-bootstrap";
+import { Accordion, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Lists() {
@@ -11,14 +11,16 @@ export default function Lists() {
           <Accordion.Item eventKey={location._id} key={location._id}>
             <Accordion.Header>{`${location.station}-${location.name.floor}${location.name.area}`}</Accordion.Header>
             <Accordion.Body>
-              {location.sections.map((section) => {
-                return (
-                  <ListGroup key={section._id} horizontal>
-                    <ListGroup.Item md={3}>{section.name}</ListGroup.Item>
-                    <ListGroup.Item md={9}>空き</ListGroup.Item>
-                  </ListGroup>
-                );
-              })}
+              <Accordion flush>
+                {location.sections.map((section) => {
+                  return (
+                    <Accordion.Item eventKey={section._id} key={section._id}>
+                      <Accordion.Header>{section.name}</Accordion.Header>
+                      <Accordion.Body>{section.item ? section.item.name : "空き"}</Accordion.Body>
+                    </Accordion.Item>
+                  );
+                })}
+              </Accordion>
             </Accordion.Body>
           </Accordion.Item>
         );
