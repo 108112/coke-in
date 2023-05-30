@@ -53,11 +53,11 @@ router.get("/section/:id/select", async (req, res) => {
 
 router.post('/section/:id/storing', async (req, res) => {
   try {
-    const item = await Item.findById(req.query.id);
+    const item = await Item.findById(req.query.id).populate('product');
     const section = await Section.findByIdAndUpdate(req.params.id, {
       item: item._id,
-    });
-    return res.status(200).json({message: `${item.name}を格納しました`})
+    }).populate('item');
+    return res.status(200).json({message: `${item.product.name}を格納しました`})
   } catch (err) {
     return res.status(500).json(err)
   }

@@ -49,7 +49,7 @@ function AccordionList() {
                       <Accordion.Body
                         onClick={() => selectSection(section._id)}
                       >
-                        {section.item ? section.item.name : "空き"}
+                        {section.item ? section.item.product.name : "空き"}
                       </Accordion.Body>
                     </Accordion.Item>
                   );
