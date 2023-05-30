@@ -6,20 +6,34 @@ import ProductLists from "../../products/pages/ProductLists";
 import { setCurrentSection } from "../../../../features/listSlice";
 
 import { Accordion } from "react-bootstrap";
+import { loading } from "../../../../features/modalSlice";
 
 function AccordionList() {
   const dispatch = useDispatch();
   const locations = useSelector((state) => state.list.locations);
 
+  const handleDataFetch = async (page) => {
+    dispatch(loading());
+    try {
+      const response = await axios.get(`/api/${page}/all`);
+      dispatch(setItems(response.data));
+    } catch (err) {
+      console.log(err);
+    }
+    dispatch(loading());
+  };
+
+
   const selectSection = async (id) => {
     try {
       const response = await axios.get(`/api/locations/section/${id}/select`);
+      handleDataFetch("items");
       dispatch(setCurrentSection(response.data));
-      console.log(response.data);
     } catch (err) {
       console.log(err.response.data.message);
     }
   };
+  
   return (
     <Accordion>
       {locations.map((location) => {
@@ -49,7 +63,7 @@ function AccordionList() {
   );
 }
 
-export default function Lists() {
+export default function LocaitonLists() {
   const currentSection = useSelector((state) => state.list.currentSection);
   return <div>{currentSection ? <ProductLists /> : <AccordionList />}</div>;
 }

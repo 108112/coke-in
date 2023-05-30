@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
 import News from "./pages/News";
-import Lists from "./pages/Lists";
+import LocaitonLists from "./pages/LocaitonLists";
 
 import { loading, setModalPages } from "../../../features/modalSlice";
 import { setLocations } from "../../../features/listSlice";
 
 import { Col, Container, Row, Spinner } from "react-bootstrap";
-import { FiDownload, FiList, FiLogIn, FiLogOut, FiPlus } from "react-icons/fi";
+import { FiDownload, FiPlus } from "react-icons/fi";
 
 export default function Locations() {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export default function Locations() {
 
   const pages = {
     News: <News />,
-    Lists: <Lists />,
+    Lists: <LocaitonLists />,
   };
 
   const handleDataFetch = async (page) => {
