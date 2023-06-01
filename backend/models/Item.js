@@ -6,6 +6,11 @@ const ItemSchema = new mongoose.Schema({
     ref: "Product",
     required: true
   },
+  storage: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Location",
+    required: true,
+  },
   quantity: {
     type: Number,
     required: true

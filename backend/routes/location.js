@@ -38,9 +38,12 @@ router.post("/regist", async (req, res) => {
 
 router.get("/section/:id/select", async (req, res) => {
   try {
-    const section = await Location.findOne({
-      "sections._id": req.params.id,
-    });
+    const location = await Location.findOne(
+      { "sections._id": req.params.id },
+      { sections: { $elemMatch: { _id: req.params.id } } }
+    );
+    const section = location.sections[0];
+
     return res.status(200).json(section);
   } catch (err) {
     return res.status(500).json({ message: err.message });
@@ -49,16 +52,17 @@ router.get("/section/:id/select", async (req, res) => {
 
 router.post("/section/:id/storing", async (req, res) => {
   try {
-    const item = await Item.findById(req.query.id).populate("product");
-    const updateLocation = await Location.findOneAndUpdate(
-      { "sections.section._id": req.params.id },
-      { "sections.section.item": item._id },
-      { new: true }
-    ).populate("item");
-
-    return res
-      .status(200)
-      .json({ message: `${updateLocation.item.product.name}を格納しました` });
+    const item = await Item.findById(req.query.id);
+    const location = await Location.findOne({ "sections._id": req.params.id });
+    const section = location.sections.find((section) =>
+      section._id.equals(req.params.id)
+    );
+    section.item = item._id;
+    item.storage = section._id;
+    await location.save();
+    return res.status(200).json({
+      message: `${item.product.name}を${location.station}-${location.name.floor}${location.name.area}-${section.name}に格納しました`,
+    });
   } catch (err) {
     return res.status(500).json(err);
   }
@@ -66,13 +70,20 @@ router.post("/section/:id/storing", async (req, res) => {
 
 router.get("/all", async (req, res) => {
   try {
-    const location = await Location.find();
-    if (!location) {
+    const locations = await Location.find().populate({
+      path: "sections.item",
+      model: "Item",
+      populate: {
+        path: "product",
+        model: "Product",
+      },
+    });
+    if (!locations) {
       return res
         .status(404)
         .json({ message: "ロケーションが登録されていません" });
     }
-    return res.status(200).json(location);
+    return res.status(200).json(locations);
   } catch (err) {
     return res.status(500).json(err);
   }

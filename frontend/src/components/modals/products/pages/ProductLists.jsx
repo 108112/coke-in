@@ -24,12 +24,19 @@ export default function ProductLists() {
 
   const storingItem = async (sectionId, itemId) => {
     try {
-      const response = await axios.post(`/api/locations/section/${sectionId}/storing?id=${itemId}`);
+      if (currentSection.item) {
+        await axios.delete(
+          `/api/locations/section/${sectionId}/clear`
+        );
+      }
+      const response = await axios.post(
+        `/api/locations/section/${sectionId}/storing?id=${itemId}`
+      );
       alert(response.data.message);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   return (
     <Container fluid>
@@ -49,7 +56,11 @@ export default function ProductLists() {
             return (
               <tr
                 key={item._id}
-                onClick={() => pages === "Regist" && selectItem(item._id) || pages === "LocationLists" && storingItem(currentSection._id, item._id)}
+                onClick={() =>
+                  (pages === "Shipments" && selectItem(item._id)) ||
+                  (pages === "LocationLists" &&
+                    storingItem(currentSection._id, item._id))
+                }
               >
                 <td className="col-1">{item.product.code.JS}</td>
                 <td className="col-1">{item.product.code.branch}</td>
