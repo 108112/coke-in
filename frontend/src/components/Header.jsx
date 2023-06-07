@@ -5,7 +5,6 @@ import { openSidebar } from "../features/sidebarSlice";
 
 import { Container } from "react-bootstrap";
 import { List } from "react-bootstrap-icons";
-import "./Header.css";
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -14,7 +13,7 @@ export default function Header() {
     dispatch(openSidebar());
   };
   return (
-    <Container className="d-flex align-items-center headerContainer">
+    <Container>
       <List
         className="list"
         onClick={handleOpenSidebar}
