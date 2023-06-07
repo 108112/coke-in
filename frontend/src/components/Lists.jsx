@@ -6,7 +6,11 @@ import { Container, Table } from "react-bootstrap";
 import { setCurrentItem } from "../../../../features/listSlice";
 import axios from "axios";
 
-export default function ProductLists() {
+export default function Lists() {
+  return <div>Lists</div>;
+}
+
+export function Product() {
   const dispatch = useDispatch();
 
   const items = useSelector((state) => state.list.items);
@@ -25,9 +29,7 @@ export default function ProductLists() {
   const storingItem = async (sectionId, itemId) => {
     try {
       if (currentSection.item) {
-        await axios.delete(
-          `/api/locations/section/${sectionId}/clear`
-        );
+        await axios.delete(`/api/locations/section/${sectionId}/clear`);
       }
       const response = await axios.post(
         `/api/locations/section/${sectionId}/storing?id=${itemId}`
@@ -37,7 +39,6 @@ export default function ProductLists() {
       console.log(err);
     }
   };
-
   return (
     <Container fluid>
       <Search />

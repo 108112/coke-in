@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
-import { openSidebar } from "../../features/sidebarSlice";
+import { openSidebar } from "../features/sidebarSlice";
 
 import { Container } from "react-bootstrap";
 import { List } from "react-bootstrap-icons";

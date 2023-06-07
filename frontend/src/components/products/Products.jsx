@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { setModalPages, loading } from "../../../features/modalSlice";
-import { resetForm } from "../../../features/formSlice";
+import { setModalPages, loading } from "../../features/modalSlice";
+import { resetForm } from "../../features/formSlice";
 
 import News from "./pages/News";
 import Receipts from "./pages/Receipts";
@@ -11,7 +11,7 @@ import Shipments from "./pages/Shipments";
 
 import "./Products.css";
 
-import { resetList, setItems } from "../../../features/listSlice";
+import { resetList, setItems } from "../../features/listSlice";
 
 import { FiPlus, FiLogIn, FiLogOut, FiList } from "react-icons/fi";
 import { Col, Container, Row, Spinner } from "react-bootstrap";
