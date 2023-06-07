@@ -6,7 +6,7 @@ import { resetModal } from "../features/modalSlice";
 import { resetList } from "../features/listSlice";
 
 import Products from "./products/Products";
-import Locations from "./modals/locations/Locations";
+import Locations from "./Locations";
 
 import { Modal } from "react-bootstrap";
 
