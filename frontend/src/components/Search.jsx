@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 
-import { resetList, setItems } from "../../features/listSlice";
+import { resetList, setItems } from "../features/listSlice";
 
 import { Form } from "react-bootstrap";
 
