@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { openSidebar } from "../features/sidebarSlice";
 
-import { Container } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { List } from "react-bootstrap-icons";
 
 export default function Header() {
@@ -13,12 +13,8 @@ export default function Header() {
     dispatch(openSidebar());
   };
   return (
-    <Container>
-      <List
-        className="list"
-        onClick={handleOpenSidebar}
-        size={48}
-      />
-    </Container>
+    <Row>
+      <List onClick={handleOpenSidebar} />
+    </Row>
   );
 }

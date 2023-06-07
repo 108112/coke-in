@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { visibleModal } from "../features/modalSlice";
 import { closeSidebar } from "../features/sidebarSlice";
-
-import style from "./Sidebar.module.css";
 import { Container, Offcanvas } from "react-bootstrap";
 
 export default function Sidebar() {
